@@ -2,14 +2,14 @@ let s:base_dir=$HOME
 let s:global_base_dir= $HOME . '/.vim'
 let s:backup_dir= s:base_dir . "/vim-backup"
 let s:myvim_dir= s:global_base_dir . "/myvim"
-set termencoding=char
 
 if has("win32")
+	set termencoding=char
 	let &termencoding= &encoding
 endif
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8
 set fileformats=unix,dos,mac
 
 
@@ -72,7 +72,7 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
  
 "####自作スクリプト読込####
-execute printf('source %s\bundle\taglist_46\plugin\taglist.vim',s:global_base_dir)
+"execute printf('source %s\bundle\taglist_46\plugin\taglist.vim',s:global_base_dir)
 " source expand(s:myvim_dir . "\myvim\cd.vim")
 " source s:global_base_dir . "\bundle\taglist_46\plugin\taglist.vim"
 " source s:myvim_dir . "\matchit.vim"
