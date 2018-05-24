@@ -1,16 +1,16 @@
-" deinÉpÉXê›íË
+" dein„Éë„ÇπË®≠ÂÆö
 let s:dein_dir = $HOME . '/' " directory for installing
-let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim' "<-å≈íË
-" dein.vimñ{ëÃÇÃë∂ç›É`ÉFÉbÉNÇ∆ÉCÉìÉXÉgÅ[Éã
+let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim' "<-Âõ∫ÂÆö
+" dein.vimÊú¨‰Ωì„ÅÆÂ≠òÂú®„ÉÅ„Çß„ÉÉ„ÇØ„Å®„Ç§„É≥„Çπ„Éà„Éº„É´
 if !isdirectory(s:dein_repo_dir)
     execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
 endif
 
-" dein.vimñ{ëÃÇÉâÉìÉ^ÉCÉÄÉpÉXÇ…í«â¡
+" dein.vimÊú¨‰Ωì„Çí„É©„É≥„Çø„Ç§„É†„Éë„Çπ„Å´ËøΩÂä†
  if &runtimepath !~# '/dein.vim'
      execute 'set runtimepath^=' . s:dein_repo_dir
  endif
-" ïKê{
+" ÂøÖÈ†à
 call dein#begin(s:dein_dir)
 
 " Plugins
@@ -44,13 +44,13 @@ call dein#add('cohama/lexima.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('severin-lemaignan/vim-minimap')
 
-" ÉJÉâÅ[ÉXÉLÅ[É}èW
+" „Ç´„É©„Éº„Çπ„Ç≠„Éº„ÉûÈõÜ
 call dein#add('jpo/vim-railscasts-theme')
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('cocopon/iceberg.vim')
 call dein#add('tomasr/molokai')
 
-" ç\ï∂êFïtÇØÉvÉâÉOÉCÉì
+" ÊßãÊñáËâ≤‰ªò„Åë„Éó„É©„Ç∞„Ç§„É≥
 call dein#add('hail2u/vim-css3-syntax')
 call dein#add('Mizuchi/STL-Syntax')
 call dein#add('jelera/vim-javascript-syntax')
@@ -59,28 +59,28 @@ call dein#add('othree/html5.vim')
 call dein#add('gorodinskiy/vim-coloresque')
 call dein#add('cespare/vim-toml')
 
-" ïKê{
+" ÂøÖÈ†à
 call dein#end()
 call dein#save_state()
 filetype plugin indent on
 syntax enable
 
-" ÉvÉâÉOÉCÉìÇÃÉCÉìÉXÉgÅ[Éã
+" „Éó„É©„Ç∞„Ç§„É≥„ÅÆ„Ç§„É≥„Çπ„Éà„Éº„É´
 if has('vim_starting') && dein#check_install()
 	echo 'uninstalled plugin is exist. execute :call dein#install()'
   " call dein#install()
 endif
 
-" äeéÌÉvÉâÉOÉCÉìê›íË
-set runtimepath^=expand('C:\~/.vim/bundle/taglist_46/plugin')
+" ÂêÑÁ®Æ„Éó„É©„Ç∞„Ç§„É≥Ë®≠ÂÆö
 if !exists('g:neocomplete#force_omni_input_patterns')
         let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let s:dict_dir=$HOME . '/vimrcs/myvim/dictionaries' 
 let g:neocomplete#sources#dictionary#dictionaries = {
-			\ 'php': 'C:\~\.vim\myvim\dictionaries\php.dict',
+			\ 'php': s:dict_dir . '/php.dict',
 			\ 'c': 'C:\~\.vim\myvim\dictionaries\C.dict',
 			\ 'cpp': 'C:\~\.vim\myvim\dictionaries\CPP.dict,C:\~\.vim\myvim\dictionaries\C.dict',
 			\ 'tex': 'C:\~\.vim\myvim\dictionaries\TEX.dict',

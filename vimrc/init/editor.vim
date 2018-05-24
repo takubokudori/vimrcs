@@ -21,7 +21,7 @@ if &compatible
 	set nocompatible               " Be iMproved
 endif
 
-"####•\¦İ’è####
+"####è¡¨ç¤ºè¨­å®š####
 " set previewheight=22
 set number
 set title
@@ -43,12 +43,12 @@ set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp
 
 set clipboard+=unnamed
 
-"####ŒŸõİ’è####
+"####æ¤œç´¢è¨­å®š####
 set ignorecase
 set smartcase
 set noincsearch
 
-"####ŠO•”İ’è####
+"####å¤–éƒ¨è¨­å®š####
 "set noundofile
 "set nobackup
 "set noswapfile
@@ -71,24 +71,20 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
  
-"####©ìƒXƒNƒŠƒvƒg“Ç####
-"execute printf('source %s\bundle\taglist_46\plugin\taglist.vim',s:global_base_dir)
-" source expand(s:myvim_dir . "\myvim\cd.vim")
-" source s:global_base_dir . "\bundle\taglist_46\plugin\taglist.vim"
-" source s:myvim_dir . "\matchit.vim"
+"####è‡ªä½œã‚¹ã‚¯ãƒªãƒ—ãƒˆèª­è¾¼####
 let b:match_words = "<if>:<end if>"
 
-"####‘®İ’è####
-"java‚Ì•W€ƒNƒ‰ƒX‚ÌƒnƒCƒ‰ƒCƒgiF•t‚¯‚Ì‚±‚Æj‚ÆA—]•ª‚È‹ó”’‚ÉF•t‚¯
+"####æ›¸å¼è¨­å®š####
+"javaã®æ¨™æº–ã‚¯ãƒ©ã‚¹ã®ãƒã‚¤ãƒ©ã‚¤ãƒˆï¼ˆè‰²ä»˜ã‘ã®ã“ã¨ï¼‰ã¨ã€ä½™åˆ†ãªç©ºç™½ã«è‰²ä»˜ã‘
 let java_highlight_all=1
 let java_highlight_debug=1
 let java_space_errors=1
 let java_highlight_functions=1
 au FileType java compiler javac
 
-"####ƒL[ƒ}ƒbƒsƒ“ƒOİ’è####
-"gg‚Åæ“ª‚Ös‚«A=G‚ÅƒCƒ“ƒfƒ“ƒg‚µA''‚Å‚³‚Á‚«‚ÌˆÊ’u‚Ö–ß‚é
-"dall ‚Å‘Síœ
+"####ã‚­ãƒ¼ãƒãƒƒãƒ”ãƒ³ã‚°è¨­å®š####
+"ggã§å…ˆé ­ã¸è¡Œãã€=Gã§ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã—ã€''ã§ã•ã£ãã®ä½ç½®ã¸æˆ»ã‚‹
+"dall ã§å…¨å‰Šé™¤
 nnoremap == gg=G''
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
@@ -124,7 +120,7 @@ xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
 nmap <Space>s :Oline<CR>
-"‘}“üƒ‚[ƒh’†‚Ì–îˆó‚Í––’[‚Ü‚ÅˆÚ“®‚É‚·‚é
+"æŒ¿å…¥ãƒ¢ãƒ¼ãƒ‰ä¸­ã®çŸ¢å°ã¯æœ«ç«¯ã¾ã§ç§»å‹•ã«ã™ã‚‹
 imap <S-Right> <ESC>$i<RIGHT>
 imap <S-Left> <ESC>^i<LEFT>
 imap <S-Up> <ESC>ggi
@@ -135,7 +131,7 @@ smap <C-s> <Plug>(neosnippet_expand_or_jump)
 xmap <C-s> <Plug>(neosnippet_expand_target)
 xmap <silent><SPACE><SPACE> gc
 
-"######ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“#######
+"######ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³#######
 cnoremap qw wq
 cnoremap mru Mru
 cnoremap tlist Tlist

@@ -72,7 +72,6 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
  
 "####自作スクリプト読込####
-execute printf('source %s\bundle\taglist_46\plugin\taglist.vim',s:global_base_dir)
 " source expand(s:myvim_dir . "\myvim\cd.vim")
 " source s:global_base_dir . "\bundle\taglist_46\plugin\taglist.vim"
 " source s:myvim_dir . "\matchit.vim"
