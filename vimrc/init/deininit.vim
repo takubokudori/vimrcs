@@ -4,21 +4,21 @@ if has('unix')
 else
 	let s:dein_dir = 'C:\vim/dein/' " windows
 endif
-	
+
 let s:dein_putting_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
 " dein.vim本体の存在チェックとインストール
 if !isdirectory(s:dein_putting_dir)
 	if has('unix')
-    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_putting_dir)
+		execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_putting_dir)
 	else
-    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_putting_dir)
+		execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_putting_dir)
 	endif
 endif
 
 " dein.vim本体をランタイムパスに追加
- if &runtimepath !~# '/dein.vim'
-     execute 'set runtimepath^=' . s:dein_putting_dir
- endif
+if &runtimepath !~# '/dein.vim'
+	execute 'set runtimepath^=' . s:dein_putting_dir
+endif
 " 必須
 call dein#begin(s:dein_dir)
 
@@ -34,13 +34,13 @@ call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('tyru/open-browser.vim')
 call dein#add('Shougo/neomru.vim')
 call dein#add('t9md/vim-quickhl')
-call dein#add('Shougo/vimproc',{
+call dein#add('Shougo/vimproc.vim',{
 			\ 'build' : {
 			\ 'windows' : 'make -f make_mingw64.mak',
 			\ 'cygwin' : 'make -f make_cygwin.mak',
 			\ 'mac' : 'make -f make_mac.mak',
 			\ 'unix' : 'make -f make_unix.mak',
-			\ }
+			\ },
 			\ })
 call dein#add('mattn/webapi-vim')
 call dein#add('itchyny/lightline.vim')
@@ -77,12 +77,12 @@ syntax enable
 " プラグインのインストール
 if has('vim_starting') && dein#check_install()
 	" echo 'uninstalled plugin is exist. execute :call dein#install()'
-  call dein#install()
+	call dein#install()
 endif
 
 " 各種プラグイン設定
 if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
+	let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
@@ -95,7 +95,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
 			\ 'cpp': s:dict_dir . 'CPP.dict,' . s:dict_dir . 'C.dict',
 			\ 'tex': s:dict_dir . 'TEX.dict',
 			\ }
-			
+
 let g:neocomplete#enable_at_startup=1
 let g:neosnippet#snippets_directory= s:dein_dir . '/repos/Shougo/neosnippet-snippets/neosnippets'
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
