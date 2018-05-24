@@ -40,7 +40,7 @@ call dein#add('Shougo/vimproc',{
 			\ 'cygwin' : 'make -f make_cygwin.mak',
 			\ 'mac' : 'make -f make_mac.mak',
 			\ 'unix' : 'make -f make_unix.mak',
-			\ },
+			\ }
 			\ })
 call dein#add('mattn/webapi-vim')
 call dein#add('itchyny/lightline.vim')
