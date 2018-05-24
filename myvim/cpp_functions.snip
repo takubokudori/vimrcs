@@ -1,0 +1,288 @@
+include c.snip
+include c_functions.snip
+
+#RandomAccessIterator=raIter
+#ReverseIterator=reIter
+#ForwardIterator=foIter
+#InputIterator=inIter
+#単項述語関数UnPredicate=uPred->bool func(T& a){return a==a} etc...
+#二項述語関数BinPredicate=bPred->bool func(T& a,T& b){return a==b} etc...
+#findなど単項述語関数を引数に取る関数はtrueの条件を満たすときに所定の動作を行う．
+#二項関数はgreaterなどの関数オブジェクトに渡すことが多く，trueの条件を満たすとそのオブジェもtrueを返したりする．
+#Predicate=Pred->bool operator()(T& a){return a==a} etc...
+#なお別に関数アドレスだけを与えただけでも別によい
+
+# STL declare
+snippet     vector_declare
+alias       vecd
+abbr        std::vector<Type> v
+options     head
+  std::vector<${1:Type}> ${2:#:name}
+
+snippet     pair_declare
+alias       paird
+abbr        std::pair<Type1,Type2> p
+options     head
+  std::pair<${1:Type},${2:Type}> ${3:#:name}
+
+snippet     priority_queue_declare
+alias       pqd
+abbr        std::priority_queue<Type[,container,Compobj]>
+options     head
+  std::priority_queue<${1:Type}${2:#:,container,Compobj}> ${3:#:name}
+
+snippet     list_declare
+alias       lsd
+abbr        std::list<Type>
+options     head
+  std::list<${1:Type}> ${2:#:name}
+
+snippet     bitset_declare
+alias       bsd
+abbr        std::bitset<size_t n_bit>
+options     head
+  std::bitset<${1:n_bit}> ${2:#:name}
+
+snippet     map_declare
+alias       mpd
+abbr        std::multi_map<Key_Type,Value_Type>
+options     head
+  std::map<${1:Key_Type},${2:Value_Type}> ${3:#:name}
+
+snippet     multi_map_declare
+alias       mmd
+abbr        std::multi_map<Key_Type,Value_Type>
+options     head
+  std::multi_map<${1:Key_Type},${2:Value_Type}> ${3:#:name}
+
+snippet     set_declare
+alias       sed
+abbr        std::set<Type>
+options     head
+  std::set<${1:Type}> ${2:#:name}
+
+snippet     multiset_declare
+alias       msd
+abbr        std::multiset<Type>
+options     head
+  std::multiset<${1:Type}> ${2:#:name}
+
+# STL common
+snippet     begin
+abbr        iterator begin()
+options     word
+  begin()
+
+snippet     end
+abbr        iterator end()
+options     word
+  end()
+
+snippet     empty
+abbr        bool empty()
+options     word
+  empty()
+
+snippet     find
+abbr        iterator find(const T& value)
+options     word
+  find(${1:value})
+
+snippet     clear
+abbr        void clear()
+options     word
+  clear()
+
+snippet     push
+abbr        stack queue priority_queue only
+options     word
+  push(${1:value})
+
+snippet     top
+abbr        stack priority_queue only
+options     word
+  top()
+
+snippet     pop
+abbr        stack priority_queue only
+options     word
+  pop()
+
+snippet     push_back
+abbr        vector list deque only
+options     word
+  push_back(${1:value})
+
+snippet     pop_back
+abbr        vector list deque only
+options     word
+  pop_back()
+
+snippet     push_front
+abbr        list deque only
+options     word
+  push_front(${1:value})
+
+snippet     pop_front
+abbr        list deque only
+options     word
+  pop_front()
+
+snippet     front
+abbr        queue deque only
+options     word
+  front()
+
+snippet     back
+abbr        vector queue deque only
+options     word
+  back()
+
+snippet     size
+abbr        size_type size()
+options     word
+  size()
+
+snippet     insert
+abbr        Container.insert(Iter pos,inIter start,inIter end)
+options     word
+  insert(${1:inserted_pos},${2:ins_val_start},${3:ins_val_end})
+
+snippet     erase
+abbr        Iterator erase(iter pos)||(Iter start,Iter end)
+options     word
+  erase(${1:pos or start}${2:#:,end})
+
+# bitset
+
+# functional
+
+snippet     greater
+abbr        std::greater<T>(args)(n1,n2)
+options     word
+  std::greater<${1:T}>(${2:#:args})${3:#:(n1,n2)}
+
+snippet     greater_equal
+abbr        std::greater_equal<T>(args)(n1,n2)
+options     word
+  std::greater_equal<${1:T}>(${2:#:args})${3:#:(n1,n2)}
+
+snippet     less
+abbr        std::less<T>(args)(n1,n2)
+options     word
+  std::less<${1:T}>(${2:#:args})${3:#:(n1,n2)}
+
+snippet     less_equal
+abbr        std::less_equal<T>(args)(n1,n2)
+options     word
+  std::less_equal<${1:T}>(${2:#:args})${3:#:(n1,n2)}
+
+# algorithm
+
+snippet     std_fill
+abbr        void std::fill(foIter start,foIter end,const T& value)
+options     head
+  std::fill(${1:start},${2:end},${3:value})
+
+snippet     std_sort
+abbr        void std::sort(raIter start,raIter end)
+options     word
+  std::sort(${1:start},${2:end})
+
+snippet     std_stable_sort
+abbr        void std::stable_sort(raIter start,raIter end)
+options     word
+  std::stable_sort(${1:start},${2:end})
+
+snippet     std_partial_sort
+abbr        void std::partial_sort(raIter start,raIter sorted_it,raIter end)
+options     word
+  std::partial_sort(${1:start},${2:sorted_it},${3:end})
+
+snippet     std_count_if
+abbr        size_t std::count_if(inIter start,inIter end,upred f)
+options     word
+  std::count_if(${1:start},${2:end},${3:unpred_func}})
+
+snippet     std_find_if
+abbr        inIt std::find_if(inIter start,inIter end,upred f)
+options     word
+  std::find_if(${1:start},${2:end}${3:#:,func})
+
+snippet     std_for_each
+abbr        Func std::for_each(inIter start,inIter end,Func f)
+options     word
+  std::for_each(${1:start},${2:end},${3:func})
+
+snippet     std_binary_search
+abbr        bool std::binary_search(foIter start,foIter end,T& OR Comp)
+options     word
+  std::binary_search(${1:start},${2:end},${3:value or Comp})
+
+snippet     std_remove
+abbr        foIter std::remove(foIter start,foIter end,const T& val)
+options     word
+  std::remove(${1:start},${2:end},${3:value}})
+
+snippet     std_remove_if
+abbr        foIter std::remove_if(foIter start,foIter end,uPred f)
+options     word
+  std::remove_if(${1:start},${2:end},${3:uPred_func})
+
+snippet     std_lower_bound
+abbr        foIter std::lower_bound(foIter start,foIter end,const T& v,[Comp comp])
+options     word
+  std::lower_bound(${1:start},${2:end},${3:value}${4:#:,[comp_func]})
+
+snippet     std_upper_bound
+abbr        foIter std::upper_bound(foIter start,foIter end,const T& v,[Comp comp])
+options     word
+  std::upper_bound(${1:start},${2:end},${3:value}${4:#:,[comp_func]})
+
+snippet     std_transform
+abbr        ouIter std::transform(inIter start,inIter end,ouIter result,func f)
+options     word
+  std::transform(${1:start},${2:end},${3:result_buf},${4:call_func})
+
+#string
+snippet     length
+abbr        string_length
+options     word
+  length()
+
+snippet     c_str
+abbr        char* c_str()
+options     word
+  c_str()
+
+snippet     std_getline
+abbr        string std::getline(istream ifs,string str)
+options     word
+  std::getline(${1:ifstream},${2:str})
+
+snippet     substr
+abbr        string substr(size_t index,[size_t len])
+options     word
+  substr(${1:start_index},${2:length})
+
+#utility
+snippet     std_make_pair
+abbr        pair<T1,T2> std::make_pair(T1& value1,T2& value2)
+options     word
+  std::make_pair(${1:value1},${2:value2})
+
+#complex
+snippet     std_real
+abbr        std::conj(const complex<T>& value)
+options     word
+  std::conj(${1:complex})
+
+snippet     std_imag
+abbr        std::imag(const complex<T>& value)
+options     word
+  std:::imag(${1:complex})
+
+snippet     std_polar
+abbr        std::polar(const T& rho,const T& radian=0)
+options     word
+  std::polar(${1:r},${1:theta}})

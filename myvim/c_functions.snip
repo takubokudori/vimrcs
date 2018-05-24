@@ -1,0 +1,178 @@
+#math.h
+snippet abs
+abbr int abs(int n)
+  abs(${1:n})
+
+snippet pow
+abbr double pow(double base,double exp)
+  pow(${1:base},${2:exp})
+
+snippet     logn
+abbr        double logN(double logn)
+options     head
+  log(${1:n})/log(${2:base})
+
+#ctype.h
+snippet isalnum
+abbr int isalnum(int c)
+  isalnum(${1:c})
+
+snippet     isalpha
+abbr        int isalpha(int c)
+  isalpha(${1:c})
+
+snippet fabs
+abbr double fabs(double n)
+  fabs(${1:n})
+
+#stdlib.h
+
+snippet     malloc
+abbr        void* malloc(size_t n_byte)
+options     word
+  malloc(${1:n_byte})
+
+snippet     realloc
+abbr        void* realloc(void* ptr,size_t n_byte)
+options     word
+  realloc(${1:ptr},${2:n_byte})
+
+snippet     free
+abbr        void free(void* ptr)
+options     word
+  free(${1:ptr})
+
+snippet     srand
+abbr        void srand(unsigned int seed)
+options     word
+  srand(${1:(unsigned)time(NULL)})
+
+snippet     rand
+abbr        int rand(void)
+options     word
+  rand()
+
+#string.h
+snippet     memcpy
+abbr        void* memcpy(void* dst,void* src,size_t n_byte)
+  memcpy(${1:dst},${2:src},${3:n_byte})
+
+snippet     memmove
+abbr        void* memmove(void* dst,void* src,size_t n_byte)
+  memmove(${1:dst},${2:src},${3:n_byte})
+
+snippet     memcmp
+abbr        int memcmp(const void* buf1,const void* buf2,size_t n_byte)
+  memcmp(${1:buf1},${2:buf2},${3:n_byte})
+
+snippet     memset
+abbr        void* memset(void* ptr,int fill_num,size_t n_byte)
+  memset(${1:ptr},${2:fill_num},${3:n_byte})
+
+
+snippet strcpy
+abbr void* strcpy(char* dst,char* src)
+  strcpy(${1:dst},${2:src})
+
+snippet     strncpy
+abbr        void* strncpy(char* dst,char* src,size_t n_byte)
+  strncpy(${1:dst},${2:src},${3:n_byte})
+
+snippet     strcat
+abbr        void* strcat(char* dst,char* src)
+  strcat(${1:dst},${2:src})
+
+snippet     strncat
+abbr        void* strncat(char* dst,char* src,size_t n_byte)
+  strncat(${1:dst},${2:src},${3:n_byte})
+
+snippet     strcmp
+abbr        int strcmp(const char *s1,const char *s2)
+  strcmp(${1:s1},${2:s2})
+
+snippet     strncmp
+abbr        int strncmp(const char *s1,const char *s2,size_t n_byte)
+  strcmp(${1:s1},${2:s2},${3:n_byte})
+
+snippet     strlen
+abbr        size_t strlen(const char *str)
+options     word
+  strlen(${1:str})
+
+snippet     strstr
+abbr        char* strstr(const char* src,const char* search)
+options     word
+  strstr(${1:src},${2:search})
+#stdio.h
+snippet printf
+abbr    printf(const char* format, ...);
+    printf(${1:format});
+
+snippet     sprintf
+abbr        int sprintf(char* dst,const char* format, ...)
+options     word
+  sprintf(${1:dst},${2:format})
+
+snippet fprintf
+abbr    fprintf(FILE* fp,const char* format, ...);
+    fprintf(${1:stderr},${2:format});
+
+snippet scanf
+abbr int scanf(const char* format, ...)
+  scanf(${1:format},${2})
+
+snippet fscanf
+abbr int fscanf(FILE* fp,const char* format, ...)
+  scanf(${1:fp},${2:format},${3})
+
+snippet fseek
+abbr int fseek(FILE* fp,long offset,int whence)
+  fseek(${1:fp},${2:offset},${3:whence})
+
+snippet     ftell
+abbr        long ftell(FILE* fp)
+options     word
+  ftell(${1:fp})
+
+snippet     fread
+abbr        size_t fread(void* buf,size_t n_byte,size_t read_num,FILE* fp)
+options     word
+  fread(${1:buf},${2:n_byte},${3:read_num},${4:fp})
+
+snippet     fwrite
+abbr        size_t fwrite(const void* buf,size_t buf_size,size_t write_num,FILE* fp)
+options     word
+  fwrite(${1:buf},${2:buf_size},${3:write_num},${4:fp})
+
+snippet     fflush
+abbr        int fflush(FILE* fp)
+options     word
+  fflush(${1:stdin})
+
+snippet     perror
+abbr        void perror(const char* str)
+options     word
+  perror(${1:NULL})
+
+
+#time.h
+
+snippet     clock
+abbr        clock_t clock(void);
+options     word
+  clock()
+
+snippet     time
+abbr        time_t time(time_t* ptr)
+options     word
+  time(${1:NULL})
+
+snippet     difftime
+abbr        double(second) difftime(time_t end,time_t start)
+options     word
+  difftime(${1:end},${2:start})
+  
+snippet     ctime
+abbr        char* ctime(const time_t* timer)
+options     word
+  ctime(${1:timer})
