@@ -5,19 +5,19 @@ else
 	let s:dein_dir = 'C:\vim/dein/' " windows
 endif
 	
-let s:dein_setting_dir = s:dein_dir . 'repos/Shougo/dein.vim'
+let s:dein_putting_dir = s:dein_dir . 'repos/Shougo/dein.vim'
 " dein.vim本体の存在チェックとインストール
-if !isdirectory(s:dein_repo_dir)
+if !isdirectory(s:dein_putting_dir)
 	if has('unix')
-    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_putting_dir)
 	else
-    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_putting_dir)
 	endif
 endif
 
 " dein.vim本体をランタイムパスに追加
  if &runtimepath !~# '/dein.vim'
-     execute 'set runtimepath^=' . s:dein_repo_dir
+     execute 'set runtimepath^=' . s:dein_putting_dir
  endif
 " 必須
 call dein#begin(s:dein_dir)
