@@ -8,7 +8,11 @@ endif
 let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim' "<-固定
 " dein.vim本体の存在チェックとインストール
 if !isdirectory(s:dein_repo_dir)
+	if has('unix')
+    execute '!sudo git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
+	else
     execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
+	endif
 endif
 
 " dein.vim本体をランタイムパスに追加

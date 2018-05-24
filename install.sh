@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cp ./.vimrc ~
-cp ./.gvimrc ~
+mv ./.vimrc ~
+mv ./.gvimrc ~
