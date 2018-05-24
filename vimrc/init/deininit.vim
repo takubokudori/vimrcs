@@ -1,15 +1,15 @@
 " deinパス設定
 if has('unix')
-	let s:dein_dir = '/etc/vim/' " unix
+	let s:dein_dir = $HOME.'/.vim/dein/' " unix
 else
-	let s:dein_dir = 'C:\vim/' " windows
+	let s:dein_dir = 'C:\vim/dein/' " windows
 endif
 	
-let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim' "<-固定
+let s:dein_setting_dir = s:dein_dir . 'repos/Shougo/dein.vim'
 " dein.vim本体の存在チェックとインストール
 if !isdirectory(s:dein_repo_dir)
 	if has('unix')
-    execute '!sudo git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
 	else
     execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_repo_dir)
 	endif
@@ -97,7 +97,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
 			\ }
 			
 let g:neocomplete#enable_at_startup=1
-let g:neosnippet#snippets_directory='C:\~\.vim\bundle\neosnippet-snippets\neosnippets'
+let g:neosnippet#snippets_directory= s:dein_dir . '/repos/Shougo/neosnippet-snippets/neosnippets'
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 let g:user_emmet_leader_key='<c-t>'
