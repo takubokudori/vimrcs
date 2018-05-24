@@ -5,7 +5,7 @@ else
 	let s:dein_dir = 'C:\vim/dein/' " windows
 endif
 	
-let s:dein_putting_dir = s:dein_dir . 'repos/Shougo/dein.vim'
+let s:dein_putting_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
 " dein.vim本体の存在チェックとインストール
 if !isdirectory(s:dein_putting_dir)
 	if has('unix')
