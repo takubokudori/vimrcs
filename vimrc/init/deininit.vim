@@ -1,5 +1,10 @@
 " deinパス設定
-let s:dein_dir = $HOME . '/' " directory for installing
+if has('unix')
+	let s:dein_dir = '/etc/vim/' " unix
+else
+	let s:dein_dir = 'C:\vim/' " windows
+endif
+	
 let s:dein_repo_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim' "<-固定
 " dein.vim本体の存在チェックとインストール
 if !isdirectory(s:dein_repo_dir)
