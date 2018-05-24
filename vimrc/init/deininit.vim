@@ -67,8 +67,8 @@ syntax enable
 
 " プラグインのインストール
 if has('vim_starting') && dein#check_install()
-	echo 'uninstalled plugin is exist. execute :call dein#install()'
-  " call dein#install()
+	" echo 'uninstalled plugin is exist. execute :call dein#install()'
+  call dein#install()
 endif
 
 " 各種プラグイン設定

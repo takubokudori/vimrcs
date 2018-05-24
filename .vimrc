@@ -1,4 +1,4 @@
-set runtimepath^=$HOME . '/vimrcs/'
+set runtimepath^=$HOME/vimrcs/
 
 runtime! vimrc/init/*.vim
 runtime! vimrc/plugin-config/*.vim
