@@ -78,13 +78,15 @@ endif
 let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let s:dict_dir=$HOME . '/vimrcs/myvim/dictionaries' 
+
+let s:dict_dir=$HOME . '/vimrcs/myvim/dictionaries/' 
 let g:neocomplete#sources#dictionary#dictionaries = {
-			\ 'php': s:dict_dir . '/php.dict',
-			\ 'c': 'C:\~\.vim\myvim\dictionaries\C.dict',
-			\ 'cpp': 'C:\~\.vim\myvim\dictionaries\CPP.dict,C:\~\.vim\myvim\dictionaries\C.dict',
-			\ 'tex': 'C:\~\.vim\myvim\dictionaries\TEX.dict',
+			\ 'php': s:dict_dir . 'php.dict',
+			\ 'c': s:dict_dir . 'C.dict',
+			\ 'cpp': s:dict_dir . 'CPP.dict,' . s:dict_dir . 'C.dict',
+			\ 'tex': s:dict_dir . 'TEX.dict',
 			\ }
+			
 let g:neocomplete#enable_at_startup=1
 let g:neosnippet#snippets_directory='C:\~\.vim\bundle\neosnippet-snippets\neosnippets'
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"

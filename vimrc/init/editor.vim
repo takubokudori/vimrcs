@@ -1,7 +1,7 @@
-let s:base_dir=$HOME
-let s:global_base_dir= $HOME . '/.vim'
-let s:backup_dir= s:base_dir . "/vim-backup"
-let s:myvim_dir= s:global_base_dir . "/myvim"
+let s:base_dir	=	$HOME
+let s:vimrcs_dir=	$HOME . '/vimrcs'
+let s:backup_dir=	s:base_dir . "/vim-backup"
+let s:myvim_dir	=	s:vimrcs_dir . "/myvim"
 
 if has("win32")
 	set termencoding=char
@@ -39,7 +39,7 @@ set mouse=a
 set cursorline
 set ambiwidth=double
 set encoding=utf-8
-set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 
 set clipboard+=unnamed
 
@@ -56,14 +56,8 @@ set noincsearch
 let &undodir  = s:backup_dir
 let &backupdir= s:backup_dir
 let &directory= s:backup_dir
-let &viminfo = ( s:backup_dir . "\.viminfo")
+let &viminfo = ( s:backup_dir . "/.viminfo")
 set tags=tags
-autocmd FileType php :set dictionary=C:\~\.vim\myvim\php.dict
-autocmd FileType c :set dictionary=C:\~\.vim\myvim\C.dict
-autocmd FileType cpp :set dictionary=C:\~\.vim\myvim\C.dict
-autocmd FileType cpp :set dictionary=C:\~\.vim\myvim\CPP.dict
-autocmd FileType tex :set dictionary=C:\~\.vim\myvim\TEX.dict
-autocmd FileType java :set dictionary=C:\~\.vim\myvim\j2se14.dict
 
 let g:Align_xstrlen = 3
 
@@ -83,7 +77,6 @@ let java_highlight_functions=1
 au FileType java compiler javac
 
 "####キーマッピング設定####
-"ggで先頭へ行き、=Gでインデントし、''でさっきの位置へ戻る
 "dall で全削除
 nnoremap == gg=G''
 nnoremap ZZ <Nop>
@@ -136,7 +129,6 @@ cnoremap qw wq
 cnoremap mru Mru
 cnoremap tlist Tlist
 
-cnoremap ?p !C:\xampp\php\php.exe -l "%"
 cnoremap ?? WatchdogsRun
 
 command! -nargs=+ R :call Refuct(<f-args>)
