@@ -8,7 +8,7 @@ set guifont=VL_Gothic:h10:w5
 
 " デフォルト文字
 if has('win64') || has('win32')
-	let vimdirectory= 'C:\\Program Files(x86)\\vim81-kaoriya-win64\\vim81\\'
+	let s:vimdirectory= 'C:\\Program Files(x86)\\vim81-kaoriya-win64\\vim81\\'
 	execute printf('source %sdelmenu.vim',s:vimdirectory)
 	set langmenu=ja_jp.utf-8
 	execute printf('source %smenu.vim',s:vimdirectory)
@@ -16,12 +16,12 @@ endif
 
 " カラースキーム
 
-if !setColorscheme(monokai)
-	setColorscheme(railscasts)
+if !setColorscheme('monokai')
+	setColorscheme('railscasts')
 endif
 
 " colorscheme
-autocmd FileType tex :call setColorscheme(railscasts)
+autocmd FileType tex :call setColorscheme('railscasts')
 
 "set guioptions-=T " invisible toolbar
 "set guioptions-=m " invisible menu
