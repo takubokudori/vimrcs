@@ -13,6 +13,7 @@ endfunction
 
 let s:base_vimrcs_dir = $HOME . '/vimrcs/'
 let s:dict_dir = s:base_vimrcs_dir . 'myvim/dictionaries/'
+let s:snippets_dir = s:base_vimrcs_dir . 'myvim/snippets/'
 if has('unix') || has('mac')
 	let s:dein_dir = $HOME.'/.vim/dein/' " unix
 else
@@ -103,7 +104,7 @@ let g:neocomplete#sources#dictionary#dictionaries = g:dictionarylist
 " 			\ }
 
 let g:neocomplete#enable_at_startup=1
-let g:neosnippet#snippets_directory= s:dein_dir . '/repos/Shougo/neosnippet-snippets/neosnippets'
+let g:neosnippet#snippets_directory= s:dein_dir . '/repos/Shougo/neosnippet-snippets/neosnippets/,' . s:snippets_dir
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 let g:user_emmet_leader_key='<c-t>'
