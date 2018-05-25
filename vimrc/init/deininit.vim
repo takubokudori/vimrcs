@@ -30,50 +30,51 @@ if &runtimepath !~# '/dein.vim'
 	execute 'set runtimepath^=' . s:dein_putting_dir
 endif
 
-call dein#load_state(s:dein_dir)
-call dein#begin(s:dein_dir)
+if dein#load_state(s:dein_dir)
+	call dein#begin(s:dein_dir)
 
-" add Plugins
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/unite-outline')
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/vimfiler')
-call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('tyru/open-browser.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('t9md/vim-quickhl')
-call dein#add('Shougo/vimproc.vim',{'build':'make'})
-call dein#add('mattn/webapi-vim')
-call dein#add('itchyny/lightline.vim')
-call dein#add('tomtom/tcomment_vim')
-call dein#add('justmao945/vim-clang')
-call dein#add('kana/vim-altr')
-call dein#add('mattn/emmet-vim')
-call dein#add('tpope/vim-surround')
-call dein#add('cohama/lexima.vim')
-call dein#add('scrooloose/nerdtree')
-call dein#add('easymotion/vim-easymotion')
+	" add Plugins
+	call dein#add('Shougo/dein.vim')
+	call dein#add('Shougo/unite.vim')
+	call dein#add('Shougo/unite-outline')
+	call dein#add('Shougo/neocomplete.vim')
+	call dein#add('Shougo/neosnippet.vim')
+	call dein#add('Shougo/neosnippet-snippets')
+	call dein#add('Shougo/vimfiler')
+	call dein#add('nathanaelkane/vim-indent-guides')
+	call dein#add('tyru/open-browser.vim')
+	call dein#add('Shougo/neomru.vim')
+	call dein#add('t9md/vim-quickhl')
+	call dein#add('Shougo/vimproc.vim',{'build':'make'})
+	call dein#add('mattn/webapi-vim')
+	call dein#add('itchyny/lightline.vim')
+	call dein#add('tomtom/tcomment_vim')
+	call dein#add('justmao945/vim-clang')
+	call dein#add('kana/vim-altr')
+	call dein#add('mattn/emmet-vim')
+	call dein#add('tpope/vim-surround')
+	call dein#add('cohama/lexima.vim')
+	call dein#add('scrooloose/nerdtree')
+	call dein#add('easymotion/vim-easymotion')
 
-" カラースキーマ
-call dein#add('jpo/vim-railscasts-theme')
-call dein#add('altercation/vim-colors-solarized')
-call dein#add('cocopon/iceberg.vim')
-call dein#add('tomasr/molokai')
+	" カラースキーマ
+	call dein#add('jpo/vim-railscasts-theme')
+	call dein#add('altercation/vim-colors-solarized')
+	call dein#add('cocopon/iceberg.vim')
+	call dein#add('tomasr/molokai')
 
-" 構文色付けプラグイン
-call dein#add('hail2u/vim-css3-syntax')
-call dein#add('Mizuchi/STL-Syntax')
-call dein#add('jelera/vim-javascript-syntax')
-call dein#add('PProvost/vim-ps1')
-call dein#add('othree/html5.vim')
-call dein#add('gorodinskiy/vim-coloresque')
-call dein#add('cespare/vim-toml')
+	" 構文色付けプラグイン
+	call dein#add('hail2u/vim-css3-syntax')
+	call dein#add('Mizuchi/STL-Syntax')
+	call dein#add('jelera/vim-javascript-syntax')
+	call dein#add('PProvost/vim-ps1')
+	call dein#add('othree/html5.vim')
+	call dein#add('gorodinskiy/vim-coloresque')
+	call dein#add('cespare/vim-toml')
 
-call dein#end()
-call dein#save_state()
+	call dein#end()
+	call dein#save_state()
+endif
 filetype plugin indent on
 syntax enable
 
