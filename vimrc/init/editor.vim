@@ -119,9 +119,15 @@ imap <S-Left> <ESC>^i<LEFT>
 imap <S-Up> <ESC>ggi
 imap <S-Down> <ESC>Gi
 imap <C-b> <ESC>:Puw<CR>i
-imap <C-s> <Plug>(neosnippet_expand_or_jump) " neosnippet
-smap <C-s> <Plug>(neosnippet_expand_or_jump)
-xmap <C-s> <Plug>(neosnippet_expand_target)
+if has('win32') || has('win64')
+	imap <C-s> <Plug>(neosnippet_expand_or_jump) " neosnippet
+	smap <C-s> <Plug>(neosnippet_expand_or_jump)
+	xmap <C-s> <Plug>(neosnippet_expand_target)
+else
+	imap <C-e> <Plug>(neosnippet_expand_or_jump) " neosnippet
+	smap <C-e> <Plug>(neosnippet_expand_or_jump)
+	xmap <C-e> <Plug>(neosnippet_expand_target)
+endif
 xmap <silent><SPACE><SPACE> gc
 
 "######コマンドライン#######
