@@ -1,51 +1,47 @@
-" ‹N“®‚ÉÅ‘å‰»‚µ‚Ä‹N“®‚·‚é
+" èµ·å‹•æ™‚ã«æœ€å¤§åŒ–ã—ã¦èµ·å‹•ã™ã‚‹
 "au GUIEnter * simalt ~x
-set lines=25
-set columns=110
-" set lines=30
-" set columns=120
+set lines=25	" è¡Œæ•°
+set columns=110	 " åˆ—æ•°
 
-" ƒtƒHƒ“ƒg‚Æ•¶šƒTƒCƒY
+" ãƒ•ã‚©ãƒ³ãƒˆã¨æ–‡å­—ã‚µã‚¤ã‚º
 set guifont=VL_Gothic:h10:w5
-" set guifont=VL_Gothic:h9:w5
 
-" ƒfƒtƒHƒ‹ƒg•¶šƒR[ƒh
+" ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆæ–‡å­—
+if has('win64') || has('win32')
+	let vimdirectory= 'C:\\vim80-kaoriya-win64\\vim80\\'
+	source s:vimdirectory . 'delmenu.vim'
+	set langmenu=ja_jp.utf-8
+	source s:vimdirectory . 'menu.vim'
+endif
 
-source C:\Program Files (x86)\vim80-kaoriya-win64\vim80\delmenu.vim
-set langmenu=ja_jp.utf-8
-source C:\Program Files (x86)\vim80-kaoriya-win64\vim80\menu.vim
+" ã‚«ãƒ©ãƒ¼ã‚¹ã‚­ãƒ¼ãƒ 
 
-" ƒJƒ‰[ƒXƒL[ƒ€
+if !setColorscheme(monokai)
+	setColorscheme(railscasts)
+endif
 
-try
-	colorscheme monokai
-catch
-	try
-		colorscheme railscasts
-	catch
-		colorscheme default
-	endtry
-endtry
+" colorscheme
+autocmd FileType tex :call setColorscheme(railscasts)
 
-" colorscheme railscasts
-autocmd FileType tex :colorscheme railscasts
-
-" ƒc[ƒ‹ƒo[”ñ•\¦
-"set guioptions-=T
-
-" ƒƒjƒ…[”ñ•\¦
-"set guioptions-=m
-
-" ‰EƒXƒNƒ[ƒ‹ƒo[”ñ•\¦
-"set guioptions-=r
+"set guioptions-=T " invisible toolbar
+"set guioptions-=m " invisible menu
+"set guioptions-=r " invisible right scrollbar
 "set guioptions-=R
-
-" ¶ƒXƒNƒ[ƒ‹ƒo[”ñ•\¦
-"set guioptions-=l
+"set guioptions-=l " invisible left scrollbar
 "set guioptions-=L
 
-" IME ‚Ì on/off ‚É‡‚í‚¹‚ÄƒJ[ƒ\ƒ‹‚ÌF‚ğ•Ï‚¦‚é
+" IME ã® on/off ã«åˆã‚ã›ã¦ã‚«ãƒ¼ã‚½ãƒ«ã®è‰²ã‚’å¤‰ãˆã‚‹
 if has('multi_byte_ime')
     hi Cursor guifg=bg guibg=Green gui=NONE
     hi CursorIM guifg=NONE guibg=Red gui=NONE
 endif
+
+function setColorscheme(colorsh)
+	try
+		colorscheme colorsh
+		return v:true
+	catch
+		colorscheme default
+		return v:false
+	endtry
+endfunction

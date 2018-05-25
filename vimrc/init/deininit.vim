@@ -1,5 +1,7 @@
 " deinパス設定
-if has('unix')
+let s:base_vimrcs_dir = $HOME . '/vimrcs/'
+let s:dict_dir = s:base_vimrcs_dir . 'myvim/dictionaries/'
+if has('unix') || has('mac')
 	let s:dein_dir = $HOME.'/.vim/dein/' " unix
 else
 	let s:dein_dir = 'C:\vim/dein/' " windows
@@ -8,11 +10,7 @@ endif
 let s:dein_putting_dir = s:dein_dir . 'repos/github.com/Shougo/dein.vim'
 " dein.vim本体の存在チェックとインストール
 if !isdirectory(s:dein_putting_dir)
-	if has('unix')
-		execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_putting_dir)
-	else
-		execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_putting_dir)
-	endif
+	execute '!git clone https://github.com/Shougo/dein.vim' shellescape(s:dein_putting_dir)
 endif
 
 " dein.vim本体をランタイムパスに追加
@@ -44,9 +42,8 @@ call dein#add('mattn/emmet-vim')
 call dein#add('tpope/vim-surround')
 call dein#add('cohama/lexima.vim')
 call dein#add('scrooloose/nerdtree')
-call dein#add('severin-lemaignan/vim-minimap')
 
-" カラースキーマ集
+" カラースキーマ
 call dein#add('jpo/vim-railscasts-theme')
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('cocopon/iceberg.vim')
@@ -82,12 +79,14 @@ let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 let s:dict_dir=$HOME . '/vimrcs/myvim/dictionaries/' 
-let g:neocomplete#sources#dictionary#dictionaries = {
-			\ 'php': s:dict_dir . 'php.dict',
-			\ 'c': s:dict_dir . 'C.dict',
-			\ 'cpp': s:dict_dir . 'CPP.dict,' . s:dict_dir . 'C.dict',
-			\ 'tex': s:dict_dir . 'TEX.dict',
-			\ }
+let g:dictionarylist=getDictionaryList(s:dict_dir)
+let g:neocomplete#sources#dictionary#dictionaries = g:dictionarylist
+" let g:neocomplete#sources#dictionary#dictionaries = {
+" 			\ 'php': s:dict_dir . 'PHP.dict',
+" 			\ 'c': s:dict_dir . 'C.dict',
+" 			\ 'cpp': s:dict_dir . 'CPP.dict,' . s:dict_dir . 'C.dict',
+" 			\ 'tex': s:dict_dir . 'TEX.dict',
+" 			\ }
 
 let g:neocomplete#enable_at_startup=1
 let g:neosnippet#snippets_directory= s:dein_dir . '/repos/Shougo/neosnippet-snippets/neosnippets'
@@ -96,3 +95,14 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expan
 let g:user_emmet_leader_key='<c-t>'
 let g:tcommentMapLeader1='<C-_>'
 let NERDTreeIgnore=['.[oa]$','.(exe|obj)','.(so)$','.(tgz|gz|zip)$']
+
+function getDictionaryList(dict_dir)
+	" dictionariesからdictファイルを列挙
+	let flist=expand(dict_dir.'*.dict')
+	let filelist=split(flist,"\n")
+	let dict={}
+	for fpath in filelist
+		let ext=fnamemodify(fpath,":t:r") " ファイル名のみ取得
+		let dict[ext]=fpath
+	endfor
+endfunction

@@ -4,7 +4,7 @@ let s:backup_dir=	s:base_dir . "/vim-backup"
 let s:myvim_dir	=	s:vimrcs_dir . "/myvim"
 
 if has("win32")
-	set termencoding=char
+	set termencoding=char " terminalencoding
 	let &termencoding= &encoding
 endif
 
@@ -27,7 +27,7 @@ set number
 set title
 set showmatch
 set matchtime=1
-syntax on
+syntax on " syntax highlight
 set smartindent
 set tabstop=2
 set shiftwidth=2
@@ -41,14 +41,14 @@ set ambiwidth=double
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 
-set clipboard+=unnamed
+set clipboard+=unnamed " share clipboard
 
 "####検索設定####
 set ignorecase
 set smartcase
 set noincsearch
 
-"####外部設定####
+"####バックアップ設定####
 "set noundofile
 "set nobackup
 "set noswapfile
@@ -119,13 +119,13 @@ imap <S-Left> <ESC>^i<LEFT>
 imap <S-Up> <ESC>ggi
 imap <S-Down> <ESC>Gi
 imap <C-b> <ESC>:Puw<CR>i
-imap <C-s> <Plug>(neosnippet_expand_or_jump)
+imap <C-s> <Plug>(neosnippet_expand_or_jump) " neosnippet
 smap <C-s> <Plug>(neosnippet_expand_or_jump)
 xmap <C-s> <Plug>(neosnippet_expand_target)
 xmap <silent><SPACE><SPACE> gc
 
 "######コマンドライン#######
-cnoremap qw wq
+cnoremap qw wq " typo
 cnoremap mru Mru
 cnoremap tlist Tlist
 
