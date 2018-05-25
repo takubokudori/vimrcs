@@ -91,7 +91,7 @@ let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 let s:dict_dir=$HOME . '/vimrcs/myvim/dictionaries/' 
-let g:dictionarylist=getDictionaryList(s:dict_dir)
+let g:dictionarylist=s:getDictionaryList(s:dict_dir)
 let g:neocomplete#sources#dictionary#dictionaries = g:dictionarylist
 " let g:neocomplete#sources#dictionary#dictionaries = {
 " 			\ 'php': s:dict_dir . 'PHP.dict',
