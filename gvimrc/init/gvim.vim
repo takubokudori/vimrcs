@@ -8,10 +8,10 @@ set guifont=VL_Gothic:h10:w5
 
 " デフォルト文字
 if has('win64') || has('win32')
-	let vimdirectory= 'C:\\vim80-kaoriya-win64\\vim80\\'
-	source s:vimdirectory . 'delmenu.vim'
+	let vimdirectory= 'C:\\Program Files(x86)\\vim81-kaoriya-win64\\vim81\\'
+	execute printf('source %sdelmenu.vim',s:vimdirectory)
 	set langmenu=ja_jp.utf-8
-	source s:vimdirectory . 'menu.vim'
+	execute printf('source %smenu.vim',s:vimdirectory)
 endif
 
 " カラースキーム
@@ -36,7 +36,7 @@ if has('multi_byte_ime')
     hi CursorIM guifg=NONE guibg=Red gui=NONE
 endif
 
-function setColorscheme(colorsh)
+function s:setColorscheme(colorsh)
 	try
 		colorscheme colorsh
 		return v:true
