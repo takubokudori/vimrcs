@@ -79,7 +79,7 @@ let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 let s:dict_dir=$HOME . '/vimrcs/myvim/dictionaries/' 
-let g:dictionarylist=s:getDictionaryList(s:dict_dir)
+let g:dictionarylist=getDictionaryList(s:dict_dir)
 let g:neocomplete#sources#dictionary#dictionaries = g:dictionarylist
 " let g:neocomplete#sources#dictionary#dictionaries = {
 " 			\ 'php': s:dict_dir . 'PHP.dict',
@@ -96,9 +96,9 @@ let g:user_emmet_leader_key='<c-t>'
 let g:tcommentMapLeader1='<C-_>'
 let NERDTreeIgnore=['.[oa]$','.(exe|obj)','.(so)$','.(tgz|gz|zip)$']
 
-function s:getDictionaryList(dict_dir)
+function! s:getDictionaryList(dict_dir)
 	" dictionariesからdictファイルを列挙
-	let flist=expand(dict_dir.'*.dict')
+	let flist=expand(a:dict_dir.'*.dict')
 	let filelist=split(flist,"\n")
 	let dict={}
 	for fpath in filelist
