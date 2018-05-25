@@ -1,6 +1,6 @@
 function s:setColorscheme(colorsh)
 	try
-		colorscheme colorsh
+		execute printf('colorscheme %s',a:colorsh)
 		return v:true
 	catch
 		colorscheme default
@@ -26,12 +26,12 @@ endif
 
 " カラースキーム
 
-if !setColorscheme('monokai')
-	setColorscheme('railscasts')
+if !s:setColorscheme('monokai')
+	s:setColorscheme('railscasts')
 endif
 
 " colorscheme
-autocmd FileType tex :call setColorscheme('railscasts')
+autocmd FileType tex :call s:setColorscheme('railscasts')
 
 "set guioptions-=T " invisible toolbar
 "set guioptions-=m " invisible menu
