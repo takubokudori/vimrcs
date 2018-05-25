@@ -29,10 +29,11 @@ endif
 if &runtimepath !~# '/dein.vim'
 	execute 'set runtimepath^=' . s:dein_putting_dir
 endif
-" 必須
+
+call dein#load_state(s:dein_dir)
 call dein#begin(s:dein_dir)
 
-" Plugins
+" add Plugins
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/unite-outline')
@@ -54,6 +55,7 @@ call dein#add('mattn/emmet-vim')
 call dein#add('tpope/vim-surround')
 call dein#add('cohama/lexima.vim')
 call dein#add('scrooloose/nerdtree')
+call dein#add('easymotion/vim-easymotion')
 
 " カラースキーマ
 call dein#add('jpo/vim-railscasts-theme')
@@ -70,7 +72,6 @@ call dein#add('othree/html5.vim')
 call dein#add('gorodinskiy/vim-coloresque')
 call dein#add('cespare/vim-toml')
 
-" 必須
 call dein#end()
 call dein#save_state()
 filetype plugin indent on
