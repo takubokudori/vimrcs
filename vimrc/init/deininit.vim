@@ -6,7 +6,7 @@ function! s:getDictionaryList(dict_dir)
 	let filelist=split(flist,"\n")
 	let dict={}
 	for fpath in filelist
-		let ext=fnamemodify(fpath,":t:r") " ファイル名のみ取得
+		let ext=tolower(fnamemodify(fpath,":t:r")) " ファイル名のみ取得
 		let dict[ext]=fpath
 	endfor
 endfunction
