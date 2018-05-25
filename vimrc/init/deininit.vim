@@ -1,4 +1,16 @@
 " deinパス設定
+
+function! s:getDictionaryList(dict_dir)
+	" dictionariesからdictファイルを列挙
+	let flist=expand(a:dict_dir.'*.dict')
+	let filelist=split(flist,"\n")
+	let dict={}
+	for fpath in filelist
+		let ext=fnamemodify(fpath,":t:r") " ファイル名のみ取得
+		let dict[ext]=fpath
+	endfor
+endfunction
+
 let s:base_vimrcs_dir = $HOME . '/vimrcs/'
 let s:dict_dir = s:base_vimrcs_dir . 'myvim/dictionaries/'
 if has('unix') || has('mac')
@@ -95,14 +107,3 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expan
 let g:user_emmet_leader_key='<c-t>'
 let g:tcommentMapLeader1='<C-_>'
 let NERDTreeIgnore=['.[oa]$','.(exe|obj)','.(so)$','.(tgz|gz|zip)$']
-
-function! s:getDictionaryList(dict_dir)
-	" dictionariesからdictファイルを列挙
-	let flist=expand(a:dict_dir.'*.dict')
-	let filelist=split(flist,"\n")
-	let dict={}
-	for fpath in filelist
-		let ext=fnamemodify(fpath,":t:r") " ファイル名のみ取得
-		let dict[ext]=fpath
-	endfor
-endfunction
