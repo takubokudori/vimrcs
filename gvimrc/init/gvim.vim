@@ -27,7 +27,8 @@ endif
 " カラースキーム
 
 if !s:setColorscheme('monokai')
-		s:setColorscheme('railscasts')
+		if s:setColorscheme('railscasts')
+		endif
 endif
 
 " colorscheme
