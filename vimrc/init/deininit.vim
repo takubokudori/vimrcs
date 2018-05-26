@@ -9,6 +9,7 @@ function! s:getDictionaryList(dict_dir)
 		let ext=tolower(fnamemodify(fpath,":t:r")) " ファイル名のみ取得
 		let dict[ext]=fpath
 	endfor
+	return dict
 endfunction
 
 let s:base_vimrcs_dir = $HOME . '/vimrcs/'
