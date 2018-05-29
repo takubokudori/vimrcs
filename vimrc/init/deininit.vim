@@ -97,12 +97,6 @@ let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\
 let s:dict_dir=$HOME . '/vimrcs/myvim/dictionaries/' 
 let g:dictionarylist=s:getDictionaryList(s:dict_dir)
 let g:neocomplete#sources#dictionary#dictionaries = g:dictionarylist
-" let g:neocomplete#sources#dictionary#dictionaries = {
-" 			\ 'php': s:dict_dir . 'PHP.dict',
-" 			\ 'c': s:dict_dir . 'C.dict',
-" 			\ 'cpp': s:dict_dir . 'CPP.dict,' . s:dict_dir . 'C.dict',
-" 			\ 'tex': s:dict_dir . 'TEX.dict',
-" 			\ }
 
 let g:neocomplete#enable_at_startup=1
 let g:neosnippet#snippets_directory= s:dein_dir . '/repos/Shougo/neosnippet-snippets/neosnippets/,' . s:snippets_dir
