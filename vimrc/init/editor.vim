@@ -107,6 +107,9 @@ nnoremap <S-Left> ^
 nnoremap <S-Up> gg
 nnoremap <S-Down> G
 inoremap <ESC> <ESC>:set iminsert=0<CR>
+if has('unix')
+	nnoremap :w!! :w !sudo tee %<CR>
+endif
 nmap <F2> <Plug>(altr-forward)
 nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
