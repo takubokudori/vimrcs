@@ -103,5 +103,5 @@ let g:neosnippet#snippets_directory= s:dein_dir . '/repos/Shougo/neosnippet-snip
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 let g:user_emmet_leader_key='<c-t>'
-let g:tcommentMapLeader1='<C-_>'
+let g:tcomment_mapleader1='<C-_>'
 let NERDTreeIgnore=['.[oa]$','.(exe|obj)','.(so)$','.(tgz|gz|zip)$']
