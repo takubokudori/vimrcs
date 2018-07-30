@@ -23,6 +23,8 @@ endif
 
 "####表示設定####
 " set previewheight=22
+set laststatus=2
+set noshowmode
 set number
 set title
 set showmatch
@@ -106,7 +108,9 @@ nnoremap <S-Right> $
 nnoremap <S-Left> ^
 nnoremap <S-Up> gg
 nnoremap <S-Down> G
-inoremap <ESC> <ESC>:set iminsert=0<CR>
+if has('win32') || has('win64')
+	inoremap <ESC> <ESC>:set iminsert=0<CR>
+endif
 if has('unix')
 	nnoremap :w!! :w !sudo tee %<CR>
 endif
