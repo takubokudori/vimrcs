@@ -8,13 +8,23 @@ function s:setColorscheme(colorsh)
 	endtry
 endfunction
 
+function s:setFont(font)
+	try
+		execute printf('set guifont=%s:h10:w5',a:font)
+		return v:true
+	catch
+		return v:false
+	endtry
+endfunction
+
 " 起動時に最大化して起動する
 "au GUIEnter * simalt ~x
 set lines=25	" 行数
 set columns=110	 " 列数
 
 " フォントと文字サイズ
-set guifont=VL_Gothic:h10:w5
+
+s:setFont('VL_Gothic')
 
 " デフォルト文字
 if has('win64') || has('win32')
