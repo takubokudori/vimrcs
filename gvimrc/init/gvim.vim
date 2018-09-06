@@ -24,7 +24,9 @@ set columns=110	 " 列数
 
 " フォントと文字サイズ
 
-s:setFont('VL_Gothic')
+if !s:setFont('VL_Gothic')
+
+endif
 
 " デフォルト文字
 if has('win64') || has('win32')

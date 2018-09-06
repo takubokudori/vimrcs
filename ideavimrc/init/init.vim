@@ -1,13 +1,9 @@
-let s:base_dir	=	$HOME
-let s:vimrcs_dir=	$HOME . '/vimrcs'
-let s:backup_dir=	s:base_dir . "/vim-backup"
-let s:myvim_dir	=	s:vimrcs_dir . "/myvim"
-
 "####表示設定####
 set laststatus=2
 set noshowmode
 set title
 set showmatch
+set showmode
 set matchtime=1
 " set tabstop=2
 " set shiftwidth=2
@@ -23,7 +19,7 @@ set iminsert=2
 
 "####キーマッピング設定####
 "dall で全削除
-nnoremap == gg=G''
+nnoremap == :action ReformatCode<CR>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap dall ggVG"0d
@@ -39,7 +35,8 @@ nnoremap gj j
 nnoremap gk k
 nnoremap gb gT
 nnoremap <Space>n :set relativenumber!<CR>
-nnoremap <silent><SPACE><SPACE> :<C-u>action CommentByLineComment<CR>
+nnoremap <SPACE><SPACE> :action CommentByLineComment<CR>
+
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
 nnoremap sw <C-w>w
@@ -53,6 +50,5 @@ imap <S-Left> <ESC>^i<LEFT>
 imap <S-Up> <ESC>ggi
 imap <S-Down> <ESC>Gi
 imap <C-b> <ESC>:Puw<CR>i
-xmap <silent><SPACE><SPACE> :<C-u>action CommentByLineComment<CR>
-
+vnoremap <SPACE><SPACE> <C-/>
 set surround " vim-surround like(ideavim only)

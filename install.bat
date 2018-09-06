@@ -4,7 +4,8 @@ if %ERRORLEVEL% neq 0 goto GIT_NOT_INSTALLED
 if DEFINED HOME goto NO_ENV_HOME
 mkdir %HOME%\vim-backup
 move .vimrc %HOME%\_vimrc
-move  .gvimrc %HOME%\_gvimrc
+move .gvimrc %HOME%\_gvimrc
+move .ideavimrc %HOMEDRIVE%%HOMEPATH%\.ideavimrc
 
 rem move colorschemes
 rem move %HOME%\vimrcs\myvim\vimproc_win64.dll C:\vim\dein\repos\github.com\Shougo\vimproc\lib
