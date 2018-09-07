@@ -1,3 +1,0 @@
-set runtimepath^=$HOME/vimrcs/
-
-runtime! ideavimrc/init/*.vim

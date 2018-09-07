@@ -1,3 +1,5 @@
+let mapleader= ","
+
 "####表示設定####
 set laststatus=2
 set noshowmode
@@ -14,6 +16,7 @@ set clipboard+=unnamed " share clipboard
 set ignorecase
 set smartcase
 set noincsearch
+set hlsearch
 
 set iminsert=2
 
@@ -36,6 +39,11 @@ nnoremap gk k
 nnoremap gb gT
 nnoremap <Space>n :set relativenumber!<CR>
 nnoremap <SPACE><SPACE> :action CommentByLineComment<CR>
+nnoremap <SPACE>* :action GotoDeclaration<CR>
+nnoremap <SPACE>r :action RenameElement<CR>
+nnoremap \r :action Run<CR>
+nnoremap \d :action Debug<CR>
+nnoremap ,a :action GotoAction<CR>
 
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
