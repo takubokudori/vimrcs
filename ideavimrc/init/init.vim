@@ -9,7 +9,7 @@ set showmode
 set matchtime=1
 " set tabstop=2
 " set shiftwidth=2
-
+set scrolloff=5
 set clipboard+=unnamed " share clipboard
 
 "####検索設定####
