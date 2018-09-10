@@ -24,6 +24,7 @@ endif
 "####表示設定####
 " set previewheight=22
 set laststatus=2
+set scrolloff=5
 set noshowmode
 set number
 set title
