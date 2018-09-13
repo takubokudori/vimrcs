@@ -50,6 +50,7 @@ set clipboard+=unnamed " share clipboard
 set ignorecase
 set smartcase
 set noincsearch
+set hlsearch
 
 "####バックアップ設定####
 "set noundofile
