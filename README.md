@@ -1,6 +1,13 @@
 # vimrcs
 takubokudori's vimrc files(for Japanese language)
 
+## 内容物
+
+- .vimrc
+- .gvimrc
+- .ideavimrc
+- .vsvimrc
+
 ## インストール
 
 ### Windows
