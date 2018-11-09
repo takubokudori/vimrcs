@@ -38,45 +38,45 @@ if v:version < 800
 	call neobundle#begin(expand(s:neobundle_dir))
 	NeoBundleFetch ' Shougo/neobundle.vim'
 
-		" add Plugins
-		NeoBundle 'Shougo/unite.vim'
-		NeoBundle 'Shougo/unite-outline'
-		NeoBundle 'Shougo/neocomplete.vim'
-		NeoBundle 'Shougo/neosnippet.vim'
-		NeoBundle 'Shougo/neosnippet-snippets'
-		NeoBundle 'Shougo/vimfiler'
-		NeoBundle 'nathanaelkane/vim-indent-guides'
-		NeoBundle 'tyru/open-browser.vim'
-		NeoBundle 'Shougo/neomru.vim'
-		NeoBundle 't9md/vim-quickhl'
-		NeoBundle 'Shougo/vimproc.vim',{'build':'make'}
-		NeoBundle 'mattn/webapi-vim'
-		NeoBundle 'itchyny/lightline.vim'
-		NeoBundle 'tomtom/tcomment_vim'
-		NeoBundle 'justmao945/vim-clang'
-		NeoBundle 'kana/vim-altr'
-		NeoBundle 'mattn/emmet-vim'
-		NeoBundle 'tpope/vim-surround'
-		NeoBundle 'cohama/lexima.vim'
-		NeoBundle 'scrooloose/nerdtree'
-		NeoBundle 'easymotion/vim-easymotion'
+	" add Plugins
+	NeoBundle 'Shougo/unite.vim'
+	NeoBundle 'Shougo/unite-outline'
+	NeoBundle 'Shougo/neocomplete.vim'
+	NeoBundle 'Shougo/neosnippet.vim'
+	NeoBundle 'Shougo/neosnippet-snippets'
+	NeoBundle 'Shougo/vimfiler'
+	NeoBundle 'nathanaelkane/vim-indent-guides'
+	NeoBundle 'tyru/open-browser.vim'
+	NeoBundle 'Shougo/neomru.vim'
+	NeoBundle 't9md/vim-quickhl'
+	NeoBundle 'Shougo/vimproc.vim',{'build':'make'}
+	NeoBundle 'mattn/webapi-vim'
+	NeoBundle 'itchyny/lightline.vim'
+	NeoBundle 'tomtom/tcomment_vim'
+	NeoBundle 'justmao945/vim-clang'
+	NeoBundle 'kana/vim-altr'
+	NeoBundle 'mattn/emmet-vim'
+	NeoBundle 'tpope/vim-surround'
+	NeoBundle 'cohama/lexima.vim'
+	NeoBundle 'scrooloose/nerdtree'
+	NeoBundle 'easymotion/vim-easymotion'
 
-		" カラースキーマ
-		NeoBundle 'jpo/vim-railscasts-theme'
-		NeoBundle 'altercation/vim-colors-solarized'
-		NeoBundle 'cocopon/iceberg.vim'
-		NeoBundle 'tomasr/molokai'
+	" カラースキーマ
+	NeoBundle 'jpo/vim-railscasts-theme'
+	NeoBundle 'altercation/vim-colors-solarized'
+	NeoBundle 'cocopon/iceberg.vim'
+	NeoBundle 'tomasr/molokai'
 
-		" 構文色付けプラグイン
-		NeoBundle 'hail2u/vim-css3-syntax'
-		NeoBundle 'Mizuchi/STL-Syntax'
-		NeoBundle 'jelera/vim-javascript-syntax'
-		NeoBundle 'PProvost/vim-ps1'
-		NeoBundle 'othree/html5.vim'
-		NeoBundle 'gorodinskiy/vim-coloresque'
-		NeoBundle 'cespare/vim-toml'
+	" 構文色付けプラグイン
+	NeoBundle 'hail2u/vim-css3-syntax'
+	NeoBundle 'Mizuchi/STL-Syntax'
+	NeoBundle 'jelera/vim-javascript-syntax'
+	NeoBundle 'PProvost/vim-ps1'
+	NeoBundle 'othree/html5.vim'
+	NeoBundle 'gorodinskiy/vim-coloresque'
+	NeoBundle 'cespare/vim-toml'
 
-		call neobundle#end()
+	call neobundle#end()
 	filetype plugin indent on
 	syntax enable
 
@@ -94,7 +94,7 @@ if v:version < 800
 	let g:neocomplete#sources#dictionary#dictionaries = g:dictionarylist
 
 	let g:neocomplete#enable_at_startup=1
-	let g:neosnippet#snippets_directory= s:neobundle_dir . '/repos/Shougo/neosnippet-snippets/neosnippets/,' . s:snippets_dir
+	let g:neosnippet#snippets_directory= s:neobundle_dir . '/neosnippet-snippets/neosnippets/,' . s:snippets_dir
 	inoremap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 	smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 	let g:user_emmet_leader_key='<c-t>'
