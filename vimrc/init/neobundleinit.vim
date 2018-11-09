@@ -30,7 +30,7 @@ if v:version < 800
 		execute '!git clone https://github.com/Shougo/neobundle.vim' shellescape(s:neobundle_putting_dir)
 	endif
 
-	" dein.vim本体をランタイムパスに追加
+	" neobundle本体をランタイムパスに追加
 	if &runtimepath !~# '/neobundle'
 		execute 'set runtimepath^=' . s:neobundle_putting_dir
 	endif
@@ -39,7 +39,6 @@ if v:version < 800
 	NeoBundleFetch ' Shougo/neobundle.vim'
 
 		" add Plugins
-		NeoBundle 'Shougo/dein.vim'
 		NeoBundle 'Shougo/unite.vim'
 		NeoBundle 'Shougo/unite-outline'
 		NeoBundle 'Shougo/neocomplete.vim'
@@ -95,7 +94,7 @@ if v:version < 800
 	let g:neocomplete#sources#dictionary#dictionaries = g:dictionarylist
 
 	let g:neocomplete#enable_at_startup=1
-	let g:neosnippet#snippets_directory= s:dein_dir . '/repos/Shougo/neosnippet-snippets/neosnippets/,' . s:snippets_dir
+	let g:neosnippet#snippets_directory= s:neobundle_dir . '/repos/Shougo/neosnippet-snippets/neosnippets/,' . s:snippets_dir
 	inoremap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 	smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 	let g:user_emmet_leader_key='<c-t>'
