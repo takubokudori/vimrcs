@@ -36,7 +36,7 @@ if v:version < 800
 	endif
 
 	call neobundle#begin(expand(s:neobundle_dir))
-	NeoBundleFetch ' Shougo/neobundle.vim'
+	NeoBundleFetch 'Shougo/neobundle.vim'
 
 	" add Plugins
 	NeoBundle 'Shougo/unite.vim'
