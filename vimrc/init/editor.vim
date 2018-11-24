@@ -129,11 +129,11 @@ imap <S-Up> <ESC>ggi
 imap <S-Down> <ESC>Gi
 imap <C-b> <ESC>:Puw<CR>i
 if has('win32') || has('win64')
-	imap <C-s> <Plug>(neosnippet_expand_or_jump) " neosnippet
+	imap <C-s> <Plug>(neosnippet_expand_or_jump)
 	smap <C-s> <Plug>(neosnippet_expand_or_jump)
 	xmap <C-s> <Plug>(neosnippet_expand_target)
 else
-	imap <C-e> <Plug>(neosnippet_expand_or_jump) " neosnippet
+	imap <C-e> <Plug>(neosnippet_expand_or_jump)
 	smap <C-e> <Plug>(neosnippet_expand_or_jump)
 	xmap <C-e> <Plug>(neosnippet_expand_target)
 endif
