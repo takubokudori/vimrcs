@@ -114,7 +114,7 @@ if has('win32') || has('win64')
 	inoremap <ESC> <ESC>:set iminsert=0<CR>
 endif
 if has('unix')
-	command :Sudo :w !sudo tee %
+	command Sudo :w !sudo tee %
 endif
 nmap <F2> <Plug>(altr-forward)
 nmap <Space>m <Plug>(quickhl-manual-this)
