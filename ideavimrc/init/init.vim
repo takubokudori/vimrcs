@@ -40,6 +40,7 @@ nnoremap gb gT
 nnoremap <Space>n :set relativenumber!<CR>
 nnoremap <SPACE><SPACE> :action CommentByLineComment<CR>
 nnoremap <SPACE>* :action GotoDeclaration<CR>
+nnoremap <SPACE>; :action GotoDeclaration<CR>
 nnoremap <SPACE>r :action RenameElement<CR>
 nnoremap \r :action Run<CR>
 nnoremap \d :action Debug<CR>
