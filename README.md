@@ -25,6 +25,6 @@ install.bat
 cd $HOME
 git clone https://github.com/takubokudori/vimrcs
 cd vimrcs
-chmod +x instll.sh
+chmod +x install.sh
 ./install.sh
 ```
