@@ -65,6 +65,7 @@ if v:version >= 800
 		call dein#add('altercation/vim-colors-solarized')
 		call dein#add('cocopon/iceberg.vim')
 		call dein#add('tomasr/molokai')
+		call dein#add('takubokudori/vim-monokai')
 
 		" 構文色付けプラグイン
 		call dein#add('hail2u/vim-css3-syntax')
