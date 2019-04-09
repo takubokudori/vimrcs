@@ -33,6 +33,8 @@ nnoremap <Space>n :set relativenumber!<CR>
 nnoremap <Space>* :vsc Resharper.Resharper_GotoDeclaration<CR>
 nnoremap <Space>; :vsc Resharper.Resharper_GotoDeclaration<CR>
 nnoremap <Space>r :vsc Refactor.Rename<CR>
+nnoremap \r :vsc Debug.StartwithoutDebugging<CR>
+nnoremap \d :vsc Debug.Start<CR>
 
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
