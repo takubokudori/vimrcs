@@ -48,3 +48,4 @@ imap <S-Up> <ESC>ggi
 imap <S-Down> <ESC>Gi
 imap <C-b> <ESC>:Puw<CR>i
 vnoremap <SPACE><SPACE> :vsc Edit.CommentSelection<CR>
+vnoremap == :vsc Edit.FormatSelection<CR>
