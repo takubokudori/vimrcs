@@ -27,6 +27,7 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap gb gT
+nnoremap == :vsc Edit.FormatDocument<CR>
 nnoremap <Space><Space> :vsc Edit.CommentSelection<CR>
 nnoremap <Space>n :set relativenumber!<CR>
 nnoremap <Space>* :vsc Resharper.Resharper_GotoDeclaration<CR>
