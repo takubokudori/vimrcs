@@ -28,13 +28,20 @@ nnoremap gj j
 nnoremap gk k
 nnoremap gb gT
 nnoremap == :vsc Edit.FormatDocument<CR>
-nnoremap <Space><Space> :vsc Edit.CommentSelection<CR>
 nnoremap <Space>n :set relativenumber!<CR>
-nnoremap <Space>* :vsc Resharper.Resharper_GotoDeclaration<CR>
-nnoremap <Space>; :vsc Resharper.Resharper_GotoDeclaration<CR>
 nnoremap <Space>r :vsc Refactor.Rename<CR>
 nnoremap \r :vsc Debug.StartwithoutDebugging<CR>
 nnoremap \d :vsc Debug.Start<CR>
+
+" Resharperがない場合(コメントアウトを消して使用)
+nnoremap <Space><Space> :vsc Edit.CommentSelection<CR>
+nnoremap <Space>* :vsc Edit.GoToDeclaration<CR>
+nnoremap <Space>; :vsc Edit.GoToDeclaration<CR>
+
+" Resharperがある場合そっちの方が便利
+" nnoremap <Space><Space> :vsc ReSharper.ReSharper_LineComment<CR> 
+" nnoremap <Space>* :vsc Resharper.Resharper_GotoDeclaration<CR>
+" nnoremap <Space>; :vsc Resharper.Resharper_GotoDeclaration<CR>
 
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
