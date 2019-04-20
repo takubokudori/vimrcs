@@ -32,6 +32,7 @@ nnoremap <Space>n :set relativenumber!<CR>
 nnoremap <Space>r :vsc Refactor.Rename<CR>
 nnoremap \r :vsc Debug.StartwithoutDebugging<CR>
 nnoremap \d :vsc Debug.Start<CR>
+nnoremap \b :vsc Build.BuildSelection<CR>
 
 if 1
 	" Resharperがない場合
@@ -43,6 +44,7 @@ else
 	nnoremap <Space><Space> :vsc ReSharper.ReSharper_LineComment<CR> 
 	nnoremap <Space>* :vsc Resharper.Resharper_GotoDeclaration<CR>
 	nnoremap <Space>; :vsc Resharper.Resharper_GotoDeclaration<CR>
+	vnoremap S :vsc ReSharper.ReSharper_SurroundWith<CR>
 endif
 
 nnoremap sl <C-w>l
