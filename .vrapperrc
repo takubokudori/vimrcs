@@ -1,4 +1,7 @@
 " 「ウィンドウ」->「設定」->「一般」->「キー」からC-b,C-f,C-w,C-rをアンバウンドする
+
+"####gvim####
+set gvimpath=$VIM/gvim.exe
 "####表示設定####
 " set tabstop=2
 " set shiftwidth=2
@@ -52,7 +55,7 @@ nnoremap \f :ShowRulerContextMenu<CR>
 eclipseaction ContentAssistContextInformation org.eclipse.ui.edit.text.contentAssist.contextInformation
 nnoremap \e :ContentAssistContextInformation<CR>
 
-command Reload :source ~/_vrapperrc<CR>
+command Reload :source ~/_vrapperrc
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
 nnoremap sw <C-w>w
