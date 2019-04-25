@@ -1,3 +1,4 @@
+" 「ウィンドウ」->「設定」->「一般」->「キー」からC-b,C-f,C-w,C-rをアンバウンドする
 "####表示設定####
 " set tabstop=2
 " set shiftwidth=2
@@ -36,10 +37,20 @@ nnoremap [[ :GotoPreviousMember<CR>
 
 eclipseaction ToggleComment org.eclipse.jdt.ui.edit.text.java.toggle.comment
 nnoremap <Space><Space> :ToggleComment<CR>
+vnoremap <Space><Space> :ToggleComment<CR>
 eclipseaction SearchImplementorsInProject org.eclipse.jdt.ui.edit.text.java.search.implementors.in.project
 nnoremap <Space>* :SearchImplementorsInProject<CR>
 eclipseaction SearchDeclarationsInProjects org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
 nnoremap <Space>; :SearchDeclarationsInProjects<CR>
+
+eclipseaction showContextMenu org.eclipse.ui.window.showContextMenu
+nnoremap \c :showContextMenu<cr>
+
+eclipseaction ShowRulerContextMenu org.eclipse.ui.edit.text.showRulerContextMenu
+nnoremap \f :ShowRulerContextMenu<CR>
+
+eclipseaction ContentAssistContextInformation org.eclipse.ui.edit.text.contentAssist.contextInformation
+nnoremap \e :ContentAssistContextInformation<CR>
 
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
