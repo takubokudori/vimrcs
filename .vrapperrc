@@ -3,6 +3,7 @@
 " set shiftwidth=2
 set scrolloff=5
 set clipboard=unnamed
+set imd
 
 "####検索設定####
 set ignorecase
@@ -11,6 +12,7 @@ set noincsearch
 set hlsearch
 
 "####キーマッピング設定####
+"javaとついているヤツはjavaでしか動かない?
 "dall で全削除
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
