@@ -21,10 +21,6 @@ nnoremap <ESC><ESC> :noh<CR>
 nnoremap q: <Nop>
 nnoremap + <C-a>
 nnoremap - <C-x>
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
 nnoremap gb gT
 eclipseaction Format org.eclipse.jdt.ui.edit.text.java.format
 nnoremap == :Format<CR>
