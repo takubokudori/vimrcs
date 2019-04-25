@@ -52,6 +52,7 @@ nnoremap \f :ShowRulerContextMenu<CR>
 eclipseaction ContentAssistContextInformation org.eclipse.ui.edit.text.contentAssist.contextInformation
 nnoremap \e :ContentAssistContextInformation<CR>
 
+command Reload :source ~/_vrapperrc<CR>
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
 nnoremap sw <C-w>w
