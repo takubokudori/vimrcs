@@ -34,6 +34,11 @@ nnoremap <Space>r :vsc Refactor.Rename<CR>
 nnoremap \r :vsc Debug.StartwithoutDebugging<CR>
 nnoremap \d :vsc Debug.Start<CR>
 nnoremap \b :vsc Build.BuildSelection<CR>
+nnoremap \B :vsc Build.BuildSolution<CR>
+nnoremap \tr :vsc TestExplorer.RunAllTestsInContext<CR>
+nnoremap \Tr :vsc TestExplorer.RunAllTests<CR>
+nnoremap \td :vsc TestExplorer.DebugAllTestsInContext<CR>
+nnoremap \Td :vsc TestExplorer.DebugAllTests<CR>
 vnoremap == :vsc Edit.FormatSelection<CR>
 
 if 1
