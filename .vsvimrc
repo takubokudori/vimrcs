@@ -13,6 +13,7 @@ set hlsearch
 
 "####キーマッピング設定####
 "dall で全削除
+"vsvimだとgdがデフォルトでGoToDefinitionに指定されているらしい
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap dall ggVG"0d
@@ -38,8 +39,9 @@ vnoremap == :vsc Edit.FormatSelection<CR>
 if 1
 	" Resharperがない場合
 	nnoremap <Space><Space> :vsc Edit.CommentSelection<CR>
-	nnoremap <Space>* :vsc GoToImplementation<CR>
-	nnoremap <Space>; :vsc Edit.GoToDeclaration<CR>
+	nnoremap <Space>b :vsc Edit.UnCommentSelection<CR>
+	nnoremap <Space>* :vsc Edit.FindAllReferences<CR>
+	nnoremap <Space>; :vsc Edit.GoToDefinition<CR>
 else
 	" Resharperがある場合そっちの方が便利
 	nnoremap <Space><Space> :vsc ReSharper.ReSharper_LineComment<CR> 
