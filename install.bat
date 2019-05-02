@@ -15,6 +15,7 @@ copy ideavimrc\init\.ideavimrc %USERPROFILE%\.ideavimrc
 
 git clone https://github.com/Shougo/dein.vim C:\vim\dein\repos\github.com\Shougo\dein.vim
 copy %HOME%\vimrcs\myvim\vimproc_win64.dll C:\vim\dein\repos\github.com\Shougo\vimproc.vim\lib
+copy %HOME%\vimrcs\myvim\vimproc_win32.dll C:\vim\dein\repos\github.com\Shougo\vimproc.vim\lib
 goto END
 
 :GIT_NOT_INSTALLED
