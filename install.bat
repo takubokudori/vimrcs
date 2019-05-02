@@ -6,6 +6,7 @@ where /Q ctags
 if %ERRORLEVEL% neq 0 goto CTAGS_NOT_INSTALLED
 if not DEFINED HOME goto NO_ENV_HOME
 @echo on
+
 mkdir %HOME%\vim-backup
 copy .vimrc %HOME%\_vimrc
 copy .gvimrc %HOME%\_gvimrc
