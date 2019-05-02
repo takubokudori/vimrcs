@@ -82,6 +82,9 @@ if v:version >= 800
 	filetype plugin indent on
 	syntax enable
 
+	" プラグインの編集後は必ずキャッシュを消す
+	" call dein#clear_state()
+
 	" プラグインのインストール
 	if has('vim_starting') && dein#check_install()
 		" echo 'uninstalled plugin is exist. execute :call dein#install()'

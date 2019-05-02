@@ -21,6 +21,10 @@ if &compatible
 	set nocompatible               " Be iMproved
 endif
 
+"####python####
+" set pythondll=C:\python27\python27.dll
+set pythonthreedll=C:\python36\python36.dll
+
 "####表示設定####
 " set previewheight=22
 set laststatus=2
