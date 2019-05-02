@@ -1,7 +1,11 @@
 rem vimrc script for windows
+@echo off
 where /Q git
 if %ERRORLEVEL% neq 0 goto GIT_NOT_INSTALLED
+where /Q ctags
+if %ERRORLEVEL% neq 0 goto CTAGS_NOT_INSTALLED
 if not DEFINED HOME goto NO_ENV_HOME
+@echo on
 mkdir %HOME%\vim-backup
 copy .vimrc %HOME%\_vimrc
 copy .gvimrc %HOME%\_gvimrc
@@ -15,6 +19,12 @@ goto END
 
 :GIT_NOT_INSTALLED
 echo "Install git!!"
+echo "https://gitforwindows.org/"
+goto END
+
+:CTAGS_NOT_INSTALLED
+echo "Install ctags!!"
+echo "https://github.com/universal-ctags/ctags"
 goto END
 
 :NO_ENV_HOME
