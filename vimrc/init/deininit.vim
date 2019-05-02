@@ -40,6 +40,7 @@ if v:version >= 800
 		call dein#add('Shougo/dein.vim')
 		call dein#add('Shougo/unite.vim')
 		call dein#add('Shougo/unite-outline')
+		call dein#add('vim-scripts/taglist.vim')
 		call dein#add('Shougo/neocomplete.vim')
 		call dein#add('Shougo/neosnippet.vim')
 		call dein#add('Shougo/neosnippet-snippets')
