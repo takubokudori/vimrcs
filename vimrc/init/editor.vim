@@ -114,6 +114,8 @@ nnoremap <S-Right> $
 nnoremap <S-Left> ^
 nnoremap <S-Up> gg
 nnoremap <S-Down> G
+" タグジャンプ先が複数ある場合に選択できるようにする
+nnoremap <C-]> g<C-]>
 if has('win32') || has('win64')
 	inoremap <ESC> <ESC>:set iminsert=0<CR>
 endif
