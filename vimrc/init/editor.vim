@@ -72,7 +72,7 @@ let g:Align_xstrlen = 3
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
- 
+
 "####自作スクリプト読込####
 let b:match_words = "<if>:<end if>"
 
