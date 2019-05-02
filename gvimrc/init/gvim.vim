@@ -27,9 +27,7 @@ set novisualbell
 
 " フォントと文字サイズ
 
-if !s:setFont('VL_Gothic')
-
-endif
+call s:setFont('VL_Gothic')
 
 " デフォルト文字
 if has('win64') || has('win32')
@@ -42,8 +40,7 @@ endif
 " カラースキーム
 
 if !s:setColorscheme('monokai')
-		if s:setColorscheme('railscasts')
-		endif
+	call s:setColorscheme('railscasts')
 endif
 
 " colorscheme
@@ -58,6 +55,6 @@ autocmd FileType tex :call s:setColorscheme('railscasts')
 
 " IME の on/off に合わせてカーソルの色を変える
 if has('multi_byte_ime')
-    hi Cursor guifg=bg guibg=Green gui=NONE
-    hi CursorIM guifg=NONE guibg=Red gui=NONE
+	hi Cursor guifg=bg guibg=Green gui=NONE
+	hi CursorIM guifg=NONE guibg=Red gui=NONE
 endif
