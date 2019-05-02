@@ -157,3 +157,21 @@ command! -nargs=+ R :call Refuct(<f-args>)
 command! -nargs=+ Qr :QuickRun <f-args>
 command! Mru :Unite -vertical -winwidth=40 file_mru
 command! Oline :Unite -vertical -winwidth=40 outline
+
+" カレントディレクトリを遡ってtagsファイルを見つけようとする
+function! s:findTagsFile() abort
+	let l:tagspath='tags' " タグパス
+	let l:beforepath='' " 直前のフルパス
+	while glob(l:tagspath)==''
+		if l:beforepath==fnamemodify(l:tagspath,':p')
+			return 0 " 結局見つからなかった場合
+		endif
+		let l:beforepath=fnamemodify(l:tagspath,':p')
+		let l:tagspath='../' . l:tagspath
+	endwhile
+	" 見つかった場合
+	execute 'set tags=' . fnamemodify(l:tagspath,':p')
+	return 1
+endfunction
+
+call s:findTagsFile()
