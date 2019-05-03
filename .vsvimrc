@@ -44,7 +44,7 @@ vnoremap == :vsc Edit.FormatSelection<CR>
 if 1
 	" Resharperがない場合
 	nnoremap <Space><Space> :vsc Edit.CommentSelection<CR>
-	nnoremap <Space>b :vsc Edit.UnCommentSelection<CR>
+	nnoremap <S-Space><S-Space> :vsc Edit.UnCommentSelection<CR>
 	nnoremap <Space>* :vsc Edit.FindAllReferences<CR>
 	nnoremap <Space>; :vsc Edit.GoToDefinition<CR>
 else
@@ -55,6 +55,7 @@ else
 	vnoremap S :vsc ReSharper.ReSharper_SurroundWith<CR>
 endif
 vnoremap <SPACE><SPACE> :vsc Edit.CommentSelection<CR>
+vnoremap <S-SPACE><S-SPACE> :vsc Edit.UnCommentSelection<CR>
 " ReSharperのコメントアウト機能はVISUALではうまく動作しないので共用
 
 nnoremap sl <C-w>l
