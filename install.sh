@@ -14,9 +14,15 @@ fi
 
 if !(type "gtags" > /dev/null 2>&1); then
 	echo "Install gtags!!"
-	echo "sudo apt install gtags"
+	echo "wget https://ftp.gnu.org/pub/gnu/global/global-6.6.3.tar.gz -O gtags.tar.gz"
+	echo "tar zxvf gtags.tar.gz"
+	echo "cd gtags"
+	echo "./configure"
+	echo "make"
+	echo "make install"
 	return
 fi
+
 mkdir ~/vim-backup
 cp ./.vimrc ~
 cp ./.gvimrc ~
