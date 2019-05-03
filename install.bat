@@ -4,6 +4,9 @@ where /Q git
 if %ERRORLEVEL% neq 0 goto GIT_NOT_INSTALLED
 where /Q ctags
 if %ERRORLEVEL% neq 0 goto CTAGS_NOT_INSTALLED
+where /Q gtags
+if %ERRORLEVEL% neq 0 goto GTAGS_NOT_INSTALLED
+
 if not DEFINED HOME goto NO_ENV_HOME
 @echo on
 
@@ -27,6 +30,11 @@ goto END
 :CTAGS_NOT_INSTALLED
 echo "Install ctags!!"
 echo "https://github.com/universal-ctags/ctags"
+goto END
+
+:GTAGS_NOT_INSTALLED
+echo "Install gtags!!"
+echo "http://www.gnu.org/software/global/download.html"
 goto END
 
 :NO_ENV_HOME
