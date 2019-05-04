@@ -44,7 +44,8 @@ nnoremap <SPACE>; :action GotoDeclaration<CR>
 nnoremap <SPACE>r :action RenameElement<CR>
 nnoremap \r :action Run<CR>
 nnoremap \d :action Debug<CR>
-nnoremap \b :action BuildSolutionAction<CR>
+nnoremap \b :action Build<CR>
+nnoremap \B :action BuildSolutionAction<CR>
 nnoremap ,a :action GotoAction<CR>
 
 nnoremap sl <C-w>l
