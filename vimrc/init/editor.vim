@@ -103,10 +103,10 @@ nnoremap gk k
 nnoremap gb gT
 nnoremap <Space>n :set relativenumber!<CR>
 nnoremap<silent> <SPACE><SPACE> :TComment<CR>
-" nnoremap sh <C-w>h
-" nnoremap sj <C-w>j
 " nnoremap s <Nop>
-" nnoremap sk <C-w>k
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
 nnoremap sw <C-w>w
