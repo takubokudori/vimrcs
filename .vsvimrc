@@ -46,7 +46,8 @@ if 1
 	nnoremap <Space><Space> :vsc Edit.CommentSelection<CR>
 	nnoremap <S-Space><S-Space> :vsc Edit.UnCommentSelection<CR>
 	nnoremap <Space>* m':vsc Edit.FindAllReferences<CR>
-	nnoremap <Space>; m':vsc Edit.GoToDefinition<CR>
+	nnoremap <Space>; m':vsc Edit.GoToDefinition <C-r><C-w><CR>
+	" Edit.GoToDefinitionはvsのバージョン次第で引数が必要になる
 else
 	" Resharperがある場合そっちの方が便利
 	nnoremap <Space><Space> :vsc ReSharper.ReSharper_LineComment<CR> 
