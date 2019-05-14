@@ -22,8 +22,6 @@ endfunction
 set lines=25	" 行数
 set columns=110	 " 列数
 
-set noerrorbells
-set novisualbell
 
 " フォントと文字サイズ
 
