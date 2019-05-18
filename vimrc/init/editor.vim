@@ -116,6 +116,10 @@ nnoremap <S-Right> $
 nnoremap <S-Left> ^
 nnoremap <S-Up> gg
 nnoremap <S-Down> G
+vnoremap <S-Right> $
+vnoremap <S-Left> ^
+vnoremap <S-Up> gg
+vnoremap <S-Down> G
 " タグジャンプ先が複数ある場合に選択できるようにする
 " DLは https://github.com/universal-ctags/ctags
 nnoremap <C-]> g<C-]>
