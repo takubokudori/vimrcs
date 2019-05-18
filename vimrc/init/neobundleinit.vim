@@ -1,5 +1,6 @@
 " neobundleパス設定
 
+" vim8未満はdeinが使えないのでこちらで対応
 if v:version < 800
 	set nocompatible
 	filetype plugin indent on
@@ -60,6 +61,8 @@ if v:version < 800
 	NeoBundle 'cohama/lexima.vim'
 	NeoBundle 'scrooloose/nerdtree'
 	NeoBundle 'easymotion/vim-easymotion'
+	NeoBundle 'takubokudori/camelcasemotion'
+	NeoBundle 'tpope/vim-abolish'
 
 	" カラースキーマ
 	NeoBundle 'jpo/vim-railscasts-theme'
