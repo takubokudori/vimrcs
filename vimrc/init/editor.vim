@@ -135,8 +135,8 @@ xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
 nmap <Space>s :Oline<CR>
-nnoremap <Space>* m'g<C-]>
-nnoremap <Space>; m':GtagsCursor<CR>
+nnoremap <Space>* mMg<C-]>
+nnoremap <Space>; mM:GtagsCursor<CR>
 "挿入モード中の矢印は末端まで移動にする
 imap <S-Right> <ESC>$i<RIGHT>
 imap <S-Left> <ESC>^i<LEFT>

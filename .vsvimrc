@@ -45,8 +45,8 @@ if 1
 	" Resharperがない場合
 	nnoremap <Space><Space> :vsc Edit.CommentSelection<CR>
 	nnoremap <S-Space><S-Space> :vsc Edit.UnCommentSelection<CR>
-	nnoremap <Space>* m':vsc Edit.FindAllReferences<CR>
-	nnoremap <Space>; m':vsc Edit.GoToDefinition <C-r><C-w><CR>
+	nnoremap <Space>* mM:vsc Edit.FindAllReferences<CR>
+	nnoremap <Space>; mM:vsc Edit.GoToDefinition <C-r><C-w><CR>
 else
 	" Resharperがある場合そっちの方が便利
 	nnoremap <Space><Space> :vsc ReSharper.ReSharper_LineComment<CR> 
