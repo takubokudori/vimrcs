@@ -35,6 +35,7 @@ set title
 set showmatch
 set matchtime=1
 syntax on " syntax highlight
+set synmaxcol=256
 set smartindent
 set tabstop=2
 set shiftwidth=2
