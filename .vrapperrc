@@ -42,9 +42,9 @@ eclipseaction ToggleComment org.eclipse.jdt.ui.edit.text.java.toggle.comment
 nnoremap <Space><Space> :ToggleComment<CR>
 vnoremap <Space><Space> :ToggleComment<CR>
 eclipseaction SearchImplementorsInProject org.eclipse.jdt.ui.edit.text.java.search.implementors.in.project
-nnoremap <Space>* :SearchImplementorsInProject<CR>
+nnoremap <Space>* mM:SearchImplementorsInProject<CR>
 eclipseaction SearchDeclarationsInProjects org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project
-nnoremap <Space>; :SearchDeclarationsInProjects<CR>
+nnoremap <Space>; mM:SearchDeclarationsInProjects<CR>
 
 eclipseaction showContextMenu org.eclipse.ui.window.showContextMenu
 nnoremap \c :showContextMenu<cr>
