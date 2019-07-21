@@ -30,7 +30,6 @@ nnoremap gk k
 nnoremap gb gT
 nnoremap == :vsc Edit.FormatDocument<CR>
 nnoremap <Space>n :set relativenumber!<CR>
-nnoremap <Space>r :vsc Refactor.Rename<CR>
 nnoremap \r :vsc Debug.StartwithoutDebugging<CR>
 nnoremap \d :vsc Debug.Start<CR>
 nnoremap \b :vsc Build.BuildSelection<CR>
@@ -41,14 +40,16 @@ nnoremap \td :vsc TestExplorer.DebugAllTestsInContext<CR>
 nnoremap \Td :vsc TestExplorer.DebugAllTests<CR>
 vnoremap == :vsc Edit.FormatSelection<CR>
 
-if 1
+if 0
 	" Resharperがない場合
+	nnoremap <Space>r :vsc Refactor.Rename<CR>
 	nnoremap <Space><Space> :vsc Edit.CommentSelection<CR>
 	nnoremap <S-Space><S-Space> :vsc Edit.UnCommentSelection<CR>
 	nnoremap <Space>* mM:vsc Edit.FindAllReferences<CR>
 	nnoremap <Space>; mM:vsc Edit.GoToDefinition <C-r><C-w><CR>
 else
 	" Resharperがある場合そっちの方が便利
+	nnoremap <Space>r :vsc ReSharper.ReSharper_Rename<CR>
 	nnoremap <Space><Space> :vsc ReSharper.ReSharper_LineComment<CR> 
 	nnoremap <Space>* :vsc Resharper.Resharper_GotoDeclaration<CR>
 	nnoremap <Space>; :vsc Resharper.Resharper_GotoDeclaration<CR>
