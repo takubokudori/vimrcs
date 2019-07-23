@@ -51,8 +51,8 @@ else
 	" Resharperがある場合そっちの方が便利
 	nnoremap <Space>r :vsc ReSharper.ReSharper_Rename<CR>
 	nnoremap <Space><Space> :vsc ReSharper.ReSharper_LineComment<CR> 
-	nnoremap <Space>* :vsc Resharper.Resharper_GotoDeclaration<CR>
-	nnoremap <Space>; :vsc Resharper.Resharper_FindUsages<CR>
+	nnoremap <Space>* mM:vsc Resharper.Resharper_GotoDeclaration<CR>
+	nnoremap <Space>; mM:vsc Resharper.Resharper_FindUsages<CR>
 	vnoremap S :vsc ReSharper.ReSharper_SurroundWith<CR>
 endif
 vnoremap <SPACE><SPACE> :vsc Edit.CommentSelection<CR>
