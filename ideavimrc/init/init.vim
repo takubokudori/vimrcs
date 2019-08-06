@@ -50,6 +50,7 @@ nnoremap \d :action Debug<CR>
 nnoremap \b :action Build<CR>
 nnoremap \B :action BuildSolutionAction<CR>
 nnoremap ,a :action GotoAction<CR>
+nnoremap <F2> :action GotoRelated<CR>
 
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
