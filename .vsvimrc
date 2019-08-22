@@ -39,6 +39,8 @@ nnoremap \Tr :vsc TestExplorer.RunAllTests<CR>
 nnoremap \td :vsc TestExplorer.DebugAllTestsInContext<CR>
 nnoremap \Td :vsc TestExplorer.DebugAllTests<CR>
 vnoremap == :vsc Edit.FormatSelection<CR>
+nnoremap w :vsc Edit.WordNext<CR>
+nnoremap b :vsc Edit.WordPrevious<CR>
 
 if 0
 	" Resharperがない場合
