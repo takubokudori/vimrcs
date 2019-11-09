@@ -117,6 +117,8 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap gb gT
+nnoremap x "_x
+vnoremap x "_x
 nnoremap <Space>n :set relativenumber!<CR>
 nnoremap<silent> <SPACE><SPACE> :TComment<CR>
 " nnoremap s <Nop>
