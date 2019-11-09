@@ -186,14 +186,14 @@ function! s:findTagsFile() abort
 	let l:beforepath='' " 直前のフルパス
 	while glob(l:tagspath)==''
 		if l:beforepath==fnamemodify(l:tagspath,':p')
-			return 0 " 結局見つからなかった場合
+			return 1 " 結局見つからなかった場合
 		endif
 		let l:beforepath=fnamemodify(l:tagspath,':p')
 		let l:tagspath='../' . l:tagspath
 	endwhile
 	" 見つかった場合
 	execute 'set tags=' . fnamemodify(l:tagspath,':p')
-	return 1
+	return 0
 endfunction
 
 call s:findTagsFile()
