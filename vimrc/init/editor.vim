@@ -97,8 +97,10 @@ au FileType java compiler javac
 
 "####キーマッピング設定####
 nnoremap == gg=G''
+" 誤爆防止
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
+nnoremap q: <Nop>
 nnoremap <TAB> >>
 nnoremap <S-TAB> <<
 "これやるとIMEが半角になるが許容する
@@ -108,7 +110,6 @@ nnoremap dall ggVG"0d
 nnoremap <SPACE>p "0p
 nnoremap <SPACE>P "0P
 nnoremap <silent> <ESC><ESC> :noh<CR>
-nnoremap q: <Nop>
 nnoremap + <C-a>
 nnoremap - <C-x>
 nnoremap j gj
