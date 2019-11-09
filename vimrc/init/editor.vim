@@ -169,7 +169,8 @@ endif
 xmap <silent><SPACE><SPACE> gc
 
 "######コマンドライン#######
-cnoremap qw wq " typo
+" typo修正
+cnoremap qw wq
 cnoremap mru Mru
 cnoremap tlist Tlist
 
