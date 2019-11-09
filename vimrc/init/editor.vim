@@ -96,10 +96,14 @@ let java_highlight_functions=1
 au FileType java compiler javac
 
 "####キーマッピング設定####
-"dall で全削除
 nnoremap == gg=G''
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
+nnoremap <TAB> >>
+nnoremap <S-TAB> <<
+"これやるとIMEが半角になるが許容する
+inoremap <S-TAB> <C-o><<
+"dallでクリップボードを変えずに全削除
 nnoremap dall ggVG"0d
 nnoremap <SPACE>p "0p
 nnoremap <SPACE>P "0P
