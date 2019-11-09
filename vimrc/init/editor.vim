@@ -24,6 +24,13 @@ if &compatible
 	set nocompatible               " Be iMproved
 endif
 
+"####autocmd####
+augroup vimrc
+	autocmd!
+	autocmd FileType * setlocal formatoptions-=ro
+	autocmd FileType py :IndentGuidesToggle<CR>
+augroup END
+
 "####python####
 " set pythondll=C:\python27\python27.dll
 set pythonthreedll=C:\python36\python36.dll
@@ -44,8 +51,6 @@ set tabstop=4
 set shiftwidth=4
 set cindent
 set wildmenu
-autocmd FileType * setlocal formatoptions-=ro
-autocmd FileType py :IndentGuidesToggle<CR>
 set mouse=a
 set cursorline
 set ambiwidth=double
