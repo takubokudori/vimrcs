@@ -1,3 +1,9 @@
+set encoding=utf-8
+set fileencodings=utf-8
+set fileformats=unix,dos,mac
+
+scriptencoding utf-8
+
 let s:base_dir	=	$HOME
 let s:vimrcs_dir=	$HOME . '/vimrcs'
 let s:backup_dir=	s:base_dir . "/vim-backup"
@@ -8,9 +14,6 @@ if has("win32")
 	let &termencoding= &encoding
 endif
 
-set encoding=utf-8
-set fileencodings=utf-8
-set fileformats=unix,dos,mac
 
 
 let g:evenf = "T"

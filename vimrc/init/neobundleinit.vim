@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " neobundleパス設定
 
 " vim8未満はdeinが使えないのでこちらで対応

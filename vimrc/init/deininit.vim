@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " deinパス設定
 
 if v:version >= 800

@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 function s:setColorscheme(colorsh)
 	try
 		execute printf('colorscheme %s',a:colorsh)
