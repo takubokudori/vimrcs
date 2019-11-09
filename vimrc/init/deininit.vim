@@ -5,12 +5,12 @@ scriptencoding utf-8
 if v:version >= 800
 	function! s:getDictionaryList(dict_dir)
 		" dictionariesからdictファイルを列挙
-		let flist=expand(a:dict_dir.'*.dict')
-		let filelist=split(flist,"\n")
-		let dict={}
-		for fpath in filelist
-			let ext=tolower(fnamemodify(fpath,":t:r")) " ファイル名のみ取得
-			let dict[ext]=fpath
+		let l:flist=expand(a:dict_dir.'*.dict')
+		let l:filelist=split(flist,"\n")
+		let l:dict={}
+		for l:fpath in filelist
+			let l:ext=tolower(fnamemodify(fpath,":t:r")) " ファイル名のみ取得
+			let l:dict[ext]=fpath
 		endfor
 		return dict
 	endfunction
