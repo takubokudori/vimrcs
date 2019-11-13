@@ -65,6 +65,7 @@ if v:version >= 800
 		call dein#add('vim-scripts/taglist.vim')
 		call dein#add('takubokudori/camelcasemotion')
 		call dein#add('tpope/vim-abolish')
+		call dein#add('previm/previm')
 
 		" カラースキーマ
 		call dein#add('altercation/vim-colors-solarized')
