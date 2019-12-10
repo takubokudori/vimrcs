@@ -181,6 +181,11 @@ command! -nargs=+ Qr :QuickRun <f-args>
 command! Mru :Unite -vertical -winwidth=40 file_mru
 command! Oline :Unite -vertical -winwidth=40 outline
 
+command -nargs=1 MyLineSearch let @m=<q-args> | call search('^\s*'. @m)
+command -nargs=1 MyLineBackSearch let @m=<q-args> | call search('^\s*'. @m, 'b')
+nnoremap <Space>f :MyLineSearch<Space>
+nnoremap <Space>F :MyLineBackSearch<Space>
+
 " カレントディレクトリを遡ってtagsファイルを見つけようとする
 function! s:findTagsFile() abort
 	let l:tagspath='tags' " タグパス
