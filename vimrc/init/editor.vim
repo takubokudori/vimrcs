@@ -60,6 +60,7 @@ set noerrorbells
 set novisualbell
 
 set clipboard+=unnamed " share clipboard
+set expandtab
 
 "####検索設定####
 set ignorecase
