@@ -37,6 +37,7 @@ set pythonthreedll=C:\python36\python36.dll
 
 "####表示設定####
 " set previewheight=22
+set belloff=all
 set laststatus=2
 set scrolloff=5
 set noshowmode
