@@ -40,6 +40,8 @@ nnoremap gb gT
 " wをuppercamelとかにも対応させる
 nnoremap w [w
 nnoremap b [b
+nnoremap [w w
+nnoremap [b b
 nnoremap <Space>n :set relativenumber!<CR>
 nnoremap <SPACE><SPACE> :action CommentByLineComment<CR>
 nnoremap <SPACE>* mM:action GotoDeclaration<CR>
