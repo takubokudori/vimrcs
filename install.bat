@@ -1,13 +1,20 @@
-rem vimrc script for windows
 @echo off
+rem vimrc script for windows
 where /Q git
 if %ERRORLEVEL% neq 0 goto GIT_NOT_INSTALLED
-where /Q ctags
-if %ERRORLEVEL% neq 0 goto CTAGS_NOT_INSTALLED
-where /Q gtags
-if %ERRORLEVEL% neq 0 goto GTAGS_NOT_INSTALLED
-
 if not DEFINED HOME goto NO_ENV_HOME
+
+where /Q ctags
+if %ERRORLEVEL% neq 0 (
+    echo "[Warning] ctags is not installed."
+    echo "https://github.com/universal-ctags/ctags"
+) 
+where /Q gtags
+if %ERRORLEVEL% neq 0 (
+    echo "[Warning] gtags is not installed."
+    echo "http://www.gnu.org/software/global/download.html"
+)
+
 @echo on
 
 mkdir %HOME%\vim-backup
@@ -23,18 +30,8 @@ copy %HOME%\vimrcs\myvim\vimproc_win32.dll C:\vim\dein\repos\github.com\Shougo\v
 goto END
 
 :GIT_NOT_INSTALLED
-echo "Install git!!"
+echo "[Error] git is not installed."
 echo "https://gitforwindows.org/"
-goto END
-
-:CTAGS_NOT_INSTALLED
-echo "Install ctags!!"
-echo "https://github.com/universal-ctags/ctags"
-goto END
-
-:GTAGS_NOT_INSTALLED
-echo "Install gtags!!"
-echo "http://www.gnu.org/software/global/download.html"
 goto END
 
 :NO_ENV_HOME
