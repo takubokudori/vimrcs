@@ -51,6 +51,10 @@ nnoremap \r :action Run<CR>
 nnoremap \d :action Debug<CR>
 nnoremap \b :action Build<CR>
 nnoremap \B :action BuildSolutionAction<CR>
+nnoremap \ga :action Git.Add<CR>
+nnoremap \gc :action Git.Commit<CR>
+nnoremap \gf :action Git.Fetch<CR>
+nnoremap \gp :action Git.Pull<CR>
 nnoremap ,a :action GotoAction<CR>
 nnoremap <F2> :action GotoRelated<CR>
 
