@@ -83,8 +83,8 @@ set tags=tags
 let g:Align_xstrlen = 3
 
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
+nmap <A-g> <Plug>(openbrowser-smart-search)
+vmap <A-g> <Plug>(openbrowser-smart-search)
 
 "####自作スクリプト読込####
 let b:match_words = "<if>:<end if>"
@@ -205,3 +205,14 @@ function! s:findTagsFile() abort
 endfunction
 
 call s:findTagsFile()
+
+augroup vimrc-auto-mkdir  " {{{
+  autocmd!
+  autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
+  function! s:auto_mkdir(dir, force)  " {{{
+    if !isdirectory(a:dir) && (a:force ||
+    \    input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
+      call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+    endif
+  endfunction  " }}}
+augroup END  " }}}
