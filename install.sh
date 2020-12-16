@@ -26,6 +26,6 @@ cp ./.vimrc ~
 cp ./.gvimrc ~
 cp ./.vsvimrc ~
 cp ./.vrapperrc ~
-cp ./ideavimrc/init/init.vim ~/.ideavimrc
+cp ./.ideavimrc ~
 cp ./myvim/snippets/* ~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets/
 

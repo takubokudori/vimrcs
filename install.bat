@@ -22,7 +22,7 @@ copy .vimrc %HOME%\_vimrc
 copy .gvimrc %HOME%\_gvimrc
 copy .vsvimrc %HOME%\_vsvimrc
 copy .vrapperrc %USERPROFILE%\_vrapperrc
-copy ideavimrc\init\init.vim %USERPROFILE%\.ideavimrc
+copy .ideavimrc %USERPROFILE%\.ideavimrc
 
 git clone https://github.com/Shougo/dein.vim C:\vim\dein\repos\github.com\Shougo\dein.vim
 copy %HOME%\vimrcs\myvim\vimproc_win64.dll C:\vim\dein\repos\github.com\Shougo\vimproc.vim\lib

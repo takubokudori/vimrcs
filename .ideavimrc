@@ -51,11 +51,15 @@ nnoremap \r :action Run<CR>
 nnoremap \d :action Debug<CR>
 nnoremap \b :action Build<CR>
 nnoremap \B :action BuildSolutionAction<CR>
+nnoremap \c :action Coverage<CR>
+nnoremap \sr :action ChooseRunToolWindow<CR>
+nnoremap \sd :action ChooseDebugToolWindow<CR>
+nnoremap \sb :action ChooseBuildToolWindow<CR>
 nnoremap \ga :action Git.Add<CR>
 nnoremap \gc :action Git.Commit<CR>
 nnoremap \gf :action Git.Fetch<CR>
 nnoremap \gp :action Git.Pull<CR>
-nnoremap ,a :action GotoAction<CR>
+nnoremap \a :action GotoAction<CR>
 nnoremap <F2> :action GotoRelated<CR>
 
 nnoremap sl <C-w>l
@@ -72,4 +76,11 @@ imap <S-Up> <ESC>ggi
 imap <S-Down> <ESC>Gi
 imap <C-b> <ESC>:Puw<CR>i
 vnoremap <SPACE><SPACE> <C-/>
-set surround " vim-surround like(ideavim only)
+
+" プラグイン
+" easymotionは別途IdeaVim-EasyMotionプラグインを入れなくてはならない
+set easymotion
+map \\ <Plug>(easymotion-prefix)
+set surround " vim-surround
+set ideajoin
+

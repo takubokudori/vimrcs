@@ -12,7 +12,7 @@ endfunction
 
 function s:setFont(font)
 	try
-		execute printf('set guifont=%s:h10:w5',a:font)
+		execute printf('set guifont=%s:h14:w7',a:font)
 		return v:true
 	catch
 		return v:false
@@ -27,7 +27,8 @@ set columns=110	 " 列数
 
 " フォントと文字サイズ
 
-call s:setFont('VL_Gothic')
+" call s:setFont('VL_Gothic')
+call s:setFont('IPAゴシック')
 
 " デフォルト文字
 if has('win64') || has('win32')
