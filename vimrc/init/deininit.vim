@@ -56,7 +56,9 @@ if v:version >= 800
 		call dein#add('lighttiger2505/gtags.vim')
 		call dein#add('mattn/emmet-vim')
 		call dein#add('mattn/webapi-vim')
+        call dein#add('mattn/vim-lsp-settings')
 		call dein#add('nathanaelkane/vim-indent-guides')
+        call dein#add('prabirshrestha/vim-lsp')
 		call dein#add('scrooloose/nerdtree')
 		call dein#add('t9md/vim-quickhl')
 		call dein#add('tomtom/tcomment_vim')
@@ -117,4 +119,31 @@ if v:version >= 800
 	let g:user_emmet_leader_key='<c-t>'
 	let g:tcomment_mapleader1='<C-_>'
 	let NERDTreeIgnore=['.[oa]$','.(exe|obj)','.(so)$','.(tgz|gz|zip)$']
+
+    " lsp settings {{{
+    let g:lsp_signs_error = {'text': 'ER'}
+    let g:lsp_signs_warning = {'text': 'WA'}
+    if !has('nvim')
+      let g:lsp_diagnostics_float_cursor = 1
+    endif
+    let g:lsp_log_file = ''
+
+    let g:lsp_settings = {
+          \ 'efm-langserver': {
+          \   'disabled': 0,
+          \   'allowlist': ['markdown'],
+          \  }
+          \ }
+
+    function! s:on_lsp_buffer_enabled() abort
+      setlocal completeopt=menu
+      setlocal omnifunc=lsp#complete
+    endfunction
+
+    augroup lsp_install
+      au!
+      au User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+    augroup END
+    " }}}
 endif
+

@@ -18,7 +18,7 @@ if !(type "gtags" > /dev/null 2>&1); then
 	echo "cd global-6.6.4"
 	echo "./configure"
 	echo "make"
-	echo "make install"
+	echo "sudo make install"
 fi
 
 mkdir ~/vim-backup
