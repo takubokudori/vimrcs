@@ -42,10 +42,8 @@ nnoremap [w w
 nnoremap [b b
 nnoremap <Space>n :set relativenumber!<CR>
 nnoremap <SPACE><SPACE> :action CommentByLineComment<CR>
-" nnoremap <SPACE>* mM:action GotoDeclaration<CR>
-" nnoremap <SPACE>; mM:action GotoDeclaration<CR>
-nnoremap <SPACE>; :action ToggleBookmarkM<CR>:action GotoDeclaration<CR>
-nnoremap 'M :action GotoBookmarkM<CR>
+nnoremap <SPACE>* mM:action GotoDeclaration<CR>
+nnoremap <SPACE>; mM:action GotoDeclaration<CR>
 nnoremap <SPACE>r :action RenameElement<CR>
 nnoremap \t :action ActivateTerminalToolWindow<CR>
 nnoremap \r :action Run<CR>
