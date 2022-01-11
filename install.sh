@@ -16,6 +16,7 @@ if !(type "gtags" > /dev/null 2>&1); then
 	echo "wget https://ftp.gnu.org/pub/gnu/global/global-6.6.4.tar.gz -O global-6.6.4.tar.gz"
 	echo "tar zxvf global-6.6.4.tar.gz"
 	echo "cd global-6.6.4"
+	echo "sudo apt install libncurses-dev"
 	echo "./configure"
 	echo "make"
 	echo "sudo make install"
