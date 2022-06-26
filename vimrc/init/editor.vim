@@ -60,7 +60,12 @@ set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,
 set noerrorbells
 set novisualbell
 
-set clipboard+=unnamedplus " share clipboard
+if has('win32') || has('win64')
+    set clipboard=unnamed " share clipboard
+endif
+if has('unix')
+    set clipboard=unnamedplus " share clipboard
+endif
 set expandtab
 
 "####検索設定####
