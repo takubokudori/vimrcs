@@ -49,6 +49,7 @@ syntax on " syntax highlight
 set synmaxcol=256
 set smartindent
 set tabstop=4
+set backspace=2
 set shiftwidth=4
 set cindent
 set wildmenu
@@ -82,7 +83,6 @@ set hlsearch
 let &undodir  = s:backup_dir
 let &backupdir= s:backup_dir
 let &directory= s:backup_dir
-let &viminfo = ( s:backup_dir . "/.viminfo")
 set tags=tags
 
 let g:Align_xstrlen = 3

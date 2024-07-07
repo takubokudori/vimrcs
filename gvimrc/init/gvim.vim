@@ -33,9 +33,9 @@ call s:setFont('IPAゴシック')
 " デフォルト文字
 if has('win64') || has('win32')
 	let s:vimdirectory= 'C:\\Program Files (x86)\\vim-kaoriya-win64\\vim82\\'
-	execute printf('source %sdelmenu.vim',s:vimdirectory)
+	" execute printf('source %sdelmenu.vim',s:vimdirectory)
 	set langmenu=ja_jp.utf-8
-	execute printf('source %smenu.vim',s:vimdirectory)
+	" execute printf('source %smenu.vim',s:vimdirectory)
 endif
 
 " カラースキーム

@@ -64,7 +64,7 @@ if v:version >= 800
 		call dein#add('tomtom/tcomment_vim')
 		call dein#add('tpope/vim-surround')
 		call dein#add('tyru/open-browser.vim')
-		call dein#add('vim-scripts/taglist.vim')
+		" call dein#add('vim-scripts/taglist.vim')
 		call dein#add('takubokudori/camelcasemotion')
 		call dein#add('tpope/vim-abolish')
 		call dein#add('previm/previm')

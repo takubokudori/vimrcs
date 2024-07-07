@@ -48,7 +48,11 @@ nnoremap <SPACE>r :action RenameElement<CR>
 nnoremap \t :action ActivateTerminalToolWindow<CR>
 nnoremap \r :action Run<CR>
 nnoremap \d :action Debug<CR>
-nnoremap \b :action Build<CR>
+if &ide =~? 'rustrover'
+    nnoremap \b :action Rust.Build<CR>
+else
+    nnoremap \b :action Build<CR>
+endif
 nnoremap \B :action BuildSolutionAction<CR>
 nnoremap \c :action Coverage<CR>
 nnoremap \sr :action ChooseRunConfiguration<CR>
