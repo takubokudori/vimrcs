@@ -1,3 +1,45 @@
+" https://github.com/JetBrains/ideavim/discussions/703
+function! GetFilePath() abort
+  let l:orig = @+
+  execute 'action CopyPaths'
+  let l:fpath = @+
+  let @+ = orig
+  return l:fpath
+endfunction
+
+function! PushLine() abort
+  if !exists('g:lines')
+    let g:lines = []
+  endif
+
+  let cur = { 'path': GetFilePath(), 'line': line('.') }
+
+  let g:lines = g:lines + [cur]
+
+  " echo "Pushed " . cur['path'] . ":" . cur['line']
+  " echo g:lines
+endfunction
+
+function! PopLine() abort
+  if !exists('g:lines') || empty(g:lines)
+    return
+  endif
+
+  let len_lines = len(g:lines)
+
+  let l = g:lines[len_lines - 1]
+
+  if len_lines == 1
+    let g:lines = []
+  elseif len_lines == 2
+    let g:lines = [g:lines[0]]
+  else
+    let g:lines = g:lines[0 : len_lines - 2]
+  endif
+
+  execute "edit " . l["path"]
+  execute ":" . l["line"]
+endfunction
 "####表示設定####
 set laststatus=2
 set noshowmode
@@ -42,8 +84,9 @@ nnoremap [w w
 nnoremap [b b
 nnoremap <Space>n :set relativenumber!<CR>
 nnoremap <SPACE><SPACE> :action CommentByLineComment<CR>
-nnoremap <SPACE>* mM:action GotoDeclaration<CR>
-nnoremap <SPACE>; mM:action GotoDeclaration<CR>
+nnoremap <SPACE>* :call PushLine()<CR>:action GotoDeclaration<CR>
+nnoremap <SPACE>; :call PushLine()<CR>:action GotoDeclaration<CR>
+nnoremap 'M :call PopLine()<CR>
 nnoremap <SPACE>r :action RenameElement<CR>
 nnoremap \t :action ActivateTerminalToolWindow<CR>
 nnoremap \r :action Run<CR>
