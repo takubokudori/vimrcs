@@ -1,7 +1,7 @@
 " https://github.com/JetBrains/ideavim/discussions/703
 function! GetFilePath() abort
   let l:orig = @+
-  execute 'action CopyPaths'
+  execute 'action CopyContentRootPath'
   let l:fpath = @+
   let @+ = orig
   return l:fpath
