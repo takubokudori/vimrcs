@@ -84,6 +84,7 @@ if v:version >= 800
 		call dein#add('hail2u/vim-css3-syntax')
 		call dein#add('jelera/vim-javascript-syntax')
 		call dein#add('othree/html5.vim')
+        call dein#add('preservim/vim-markdown')
 
 		call dein#end()
 		call dein#save_state()

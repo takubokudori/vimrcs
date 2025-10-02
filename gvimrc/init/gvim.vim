@@ -29,6 +29,7 @@ set columns=110	 " 列数
 
 " call s:setFont('VL_Gothic')
 call s:setFont('IPAゴシック')
+" call s:setFont('JetBrains\ Mono\ NL')
 
 " デフォルト文字
 if has('win64') || has('win32')
