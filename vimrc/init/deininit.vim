@@ -113,6 +113,8 @@ if v:version >= 800
 	let g:dictionarylist=s:getDictionaryList(s:dict_dir)
 	let g:neocomplete#sources#dictionary#dictionaries = g:dictionarylist
 
+    let g:vim_markdown_folding_disabled = 1
+
 	let g:neocomplete#enable_at_startup=1
 	let g:neosnippet#snippets_directory= s:dein_dir . '/repos/Shougo/neosnippet-snippets/neosnippets/,' . s:snippets_dir
 	inoremap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
