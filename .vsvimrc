@@ -61,6 +61,7 @@ vnoremap <SPACE><SPACE> :vsc Edit.CommentSelection<CR>
 vnoremap <S-SPACE><S-SPACE> :vsc Edit.UnCommentSelection<CR>
 " ReSharperのコメントアウト機能はVISUALではうまく動作しないので共用
 
+cnoremap vs :vsc Window.NewVerticalTabGroup<CR>
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
 nnoremap sw <C-w>w

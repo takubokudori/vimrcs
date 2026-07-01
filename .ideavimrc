@@ -1,72 +1,64 @@
 " https://github.com/JetBrains/ideavim/discussions/703
 function! GetFilePath() abort
   let l:orig = @+
-  if &ide =~? 'rider'
-    execute 'action CopyAbsolutePath'
-  else
-    execute 'action CopyContentRootPath'
-  endif
+  let @+ = ''
+  execute 'action CopyAbsolutePath'
   let l:fpath = @+
-  let @+ = orig
+  let @+ = l:orig
   return l:fpath
 endfunction
 
 function! PushLine() abort
-  if !exists('g:lines')
-    let g:lines = []
+  if !exists('g:jump_stack')
+    let g:jump_stack = []
   endif
 
-  let cur = { 'path': GetFilePath(), 'line': line('.') }
-
-  let g:lines = g:lines + [cur]
-
-  " echo "Pushed " . cur['path'] . ":" . cur['line']
-  " echo g:lines
-endfunction
-
-function! PopLine() abort
-  if !exists('g:lines') || empty(g:lines)
+  let l:path = GetFilePath()
+  if empty(l:path)
+    echo 'GetFilePath failed'
     return
   endif
 
-  let len_lines = len(g:lines)
+  let l:cur = {
+      \ 'path': l:path,
+      \ 'line': line('.'),
+      \ }
 
-  let l = g:lines[len_lines - 1]
+  call add(g:jump_stack, l:cur)
 
-  if len_lines == 1
-    let g:lines = []
-  elseif len_lines == 2
-    let g:lines = [g:lines[0]]
-  else
-    let g:lines = g:lines[0 : len_lines - 2]
+  " echo "Pushed " . cur['path'] . ":" . cur['line']
+  " echo g:jump_stack
+endfunction
+
+function! PopLine() abort
+  if !exists('g:jump_stack') || empty(g:jump_stack)
+    return
   endif
 
-  execute "edit " . l["path"]
-  execute ":" . l["line"]
+  let l:item = g:jump_stack[-1]
+
+  execute 'edit ' . l:item['path']
+  execute ':' . l:item['line']
+
+  call remove(g:jump_stack, -1)
 endfunction
-"####表示設定####
-set laststatus=2
-set noshowmode
-set title
-set showmatch
+
+let mapleader='\'
+
+" ####表示設定####
 set showmode
-set matchtime=1
-" set tabstop=2
-" set shiftwidth=2
 set scrolloff=5
 set clipboard+=unnamed " share clipboard
 
-"####検索設定####
+" ####検索設定####
 set ignorecase
 set smartcase
 set noincsearch
 set hlsearch
 
-set iminsert=2
-
-"####キーマッピング設定####
-"dall で全削除
-nnoremap == :action ReformatCode<CR>
+" ####キーマッピング設定####
+" dall で全削除
+nmap == <Action>(ReformatCode)
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap dall ggVG"0d
@@ -81,37 +73,37 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 nnoremap gb gT
-" wをuppercamelとかにも対応させる
 nnoremap w [w
 nnoremap b [b
 nnoremap [w w
 nnoremap [b b
-nnoremap <Space>n :set relativenumber!<CR>
-nnoremap <SPACE><SPACE> :action CommentByLineComment<CR>
-nnoremap <SPACE>* :call PushLine()<CR>:action GotoDeclaration<CR>
-nnoremap <SPACE>; :call PushLine()<CR>:action GotoDeclaration<CR>
+nnoremap <SPACE>n :set relativenumber!<CR>
+nmap <SPACE><SPACE> <Action>(CommentByLineComment)
+vmap <SPACE><SPACE> <Action>(CommentByLineComment)
+nmap <SPACE>* :call PushLine()<CR><Action>(GotoDeclaration)
+nmap <SPACE>; :call PushLine()<CR><Action>(GotoDeclaration)
 nnoremap 'M :call PopLine()<CR>
-nnoremap <SPACE>r :action RenameElement<CR>
-nnoremap \t :action ActivateTerminalToolWindow<CR>
-nnoremap \r :action Run<CR>
-nnoremap \d :action Debug<CR>
+nmap <SPACE>r <Action>(RenameElement)
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
+nmap <leader>r <Action>(Run)
+nmap <leader>d <Action>(Debug)
 if &ide =~? 'rustrover'
-    nnoremap \b :action Rust.Build<CR>
+    nmap <leader>b <Action>(Rust.Build)
 else
-    nnoremap \b :action Build<CR>
+    nmap <leader>b <Action>(Build)
 endif
-nnoremap \B :action BuildSolutionAction<CR>
-nnoremap \c :action Coverage<CR>
-nnoremap \sr :action ChooseRunConfiguration<CR>
-nnoremap \sd :action ChooseDebugConfiguration<CR>
-nnoremap \sb :action ChooseActiveBuildConfiguration<CR>
-nnoremap \ga :action Git.Add<CR>
-nnoremap \gc :action Git.Commit<CR>
-nnoremap \gf :action Git.Fetch<CR>
-nnoremap \gp :action Git.Pull<CR>
-nnoremap \p :action ActivateProjectToolWindow<CR>
-nnoremap \a :action GotoAction<CR>
-nnoremap <F2> :action GotoRelated<CR>
+nmap <leader>B <Action>(BuildSolutionAction)
+nmap <leader>c <Action>(Coverage)
+nmap <leader>sr <Action>(ChooseRunConfiguration)
+nmap <leader>sd <Action>(ChooseDebugConfiguration)
+nmap <leader>sb <Action>(ChooseActiveBuildConfiguration)
+nmap <leader>ga <Action>(Git.Add)
+nmap <leader>gc <Action>(Git.Commit)
+nmap <leader>gf <Action>(Git.Fetch)
+nmap <leader>gp <Action>(Git.Pull)
+nmap <leader>p <Action>(ActivateProjectToolWindow)
+nmap <leader>a <Action>(GotoAction)
+nmap <F2> <Action>(GotoRelated)
 
 nnoremap sl <C-w>l
 nnoremap ss <C-w>w
@@ -120,56 +112,53 @@ nnoremap <S-Right> $
 nnoremap <S-Left> ^
 nnoremap <S-Up> gg
 nnoremap <S-Down> G
-"挿入モード中の矢印は末端まで移動にする
-imap <S-Right> <ESC>$i<RIGHT>
-imap <S-Left> <ESC>^i<LEFT>
-imap <S-Up> <ESC>ggi
-imap <S-Down> <ESC>Gi
-imap <C-b> <ESC>:Puw<CR>i
-vnoremap <SPACE><SPACE> <C-/>
+" 挿入モード中の矢印は末端まで移動にする
+inoremap <S-Right> <ESC>$i<RIGHT>
+inoremap <S-Left> <ESC>^i<LEFT>
+inoremap <S-Up> <ESC>ggi
+inoremap <S-Down> <ESC>Gi
 
 " プラグイン
-" easymotionは別途IdeaVim-EasyMotionプラグインを入れなくてはならない
+" easymotion は別途 IdeaVim-EasyMotion プラグインを入れなくてはならない
 set easymotion
-map \\ <Plug>(easymotion-prefix)
+map <leader><leader> <Plug>(easymotion-prefix)
 set surround " vim-surround
 set ideajoin
 
-" 保存されているマクロを削除する(誤爆防止)
-let @0=""
-let @1=""
-let @2=""
-let @3=""
-let @4=""
-let @5=""
-let @6=""
-let @7=""
-let @8=""
-let @9=""
-let @a=""
-let @b=""
-let @c=""
-let @d=""
-let @e=""
-let @f=""
-let @g=""
-let @h=""
-let @i=""
-let @j=""
-let @k=""
-let @l=""
-let @m=""
-let @n=""
-let @o=""
-let @p=""
-let @q=""
-let @r=""
-let @s=""
-let @t=""
-let @u=""
-let @v=""
-let @w=""
-let @x=""
-let @y=""
-let @z=""
-
+" 保存されているマクロを削除する (誤爆防止)
+" yank register (@0) は消さない
+let @1=''
+let @2=''
+let @3=''
+let @4=''
+let @5=''
+let @6=''
+let @7=''
+let @8=''
+let @9=''
+let @a=''
+let @b=''
+let @c=''
+let @d=''
+let @e=''
+let @f=''
+let @g=''
+let @h=''
+let @i=''
+let @j=''
+let @k=''
+let @l=''
+let @m=''
+let @n=''
+let @o=''
+let @p=''
+let @q=''
+let @r=''
+let @s=''
+let @t=''
+let @u=''
+let @v=''
+let @w=''
+let @x=''
+let @y=''
+let @z=''

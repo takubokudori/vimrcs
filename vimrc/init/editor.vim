@@ -163,7 +163,6 @@ imap <S-Right> <ESC>$i<RIGHT>
 imap <S-Left> <ESC>^i<LEFT>
 imap <S-Up> <ESC>ggi
 imap <S-Down> <ESC>Gi
-imap <C-b> <ESC>:Puw<CR>i
 if has('win32') || has('win64')
 	imap <C-s> <Plug>(neosnippet_expand_or_jump)
 	smap <C-s> <Plug>(neosnippet_expand_or_jump)
