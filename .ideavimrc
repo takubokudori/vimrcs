@@ -2,8 +2,12 @@
 function! GetFilePath() abort
   let l:orig = @+
   let @+ = ''
-  execute 'action CopyAbsolutePath'
+  execute 'action CopyContentRootPath'
   let l:fpath = @+
+  if empty(l:fpath)
+    execute 'action CopyAbsolutePath'
+    let l:fpath = @+
+  endif
   let @+ = l:orig
   return l:fpath
 endfunction
