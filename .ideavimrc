@@ -1,58 +1,11 @@
-" https://github.com/JetBrains/ideavim/discussions/703
-function! GetFilePath() abort
-  let l:orig = @+
-  let @+ = ''
-  execute 'action CopyContentRootPath'
-  let l:fpath = @+
-  if empty(l:fpath)
-    execute 'action CopyAbsolutePath'
-    let l:fpath = @+
-  endif
-  let @+ = l:orig
-  return l:fpath
-endfunction
-
-function! PushLine() abort
-  if !exists('g:jump_stack')
-    let g:jump_stack = []
-  endif
-
-  let l:path = GetFilePath()
-  if empty(l:path)
-    echo 'GetFilePath failed'
-    return
-  endif
-
-  let l:cur = {
-      \ 'path': l:path,
-      \ 'line': line('.'),
-      \ }
-
-  call add(g:jump_stack, l:cur)
-
-  " echo "Pushed " . cur['path'] . ":" . cur['line']
-  " echo g:jump_stack
-endfunction
-
-function! PopLine() abort
-  if !exists('g:jump_stack') || empty(g:jump_stack)
-    return
-  endif
-
-  let l:item = g:jump_stack[-1]
-
-  execute 'edit ' . l:item['path']
-  execute ':' . l:item['line']
-
-  call remove(g:jump_stack, -1)
-endfunction
+set tagstack
 
 let mapleader='\'
 
 " ####表示設定####
 set showmode
 set scrolloff=5
-set clipboard+=unnamed " share clipboard
+set clipboard+=unnamedplus,ideaput " share clipboard
 
 " ####検索設定####
 set ignorecase
@@ -84,9 +37,9 @@ nnoremap [b b
 nnoremap <SPACE>n :set relativenumber!<CR>
 nmap <SPACE><SPACE> <Action>(CommentByLineComment)
 vmap <SPACE><SPACE> <Action>(CommentByLineComment)
-nmap <SPACE>* :call PushLine()<CR><Action>(GotoDeclaration)
-nmap <SPACE>; :call PushLine()<CR><Action>(GotoDeclaration)
-nnoremap 'M :call PopLine()<CR>
+nnoremap <SPACE>* <C-]>
+nnoremap <SPACE>; <C-]>
+nnoremap 'M <C-T>
 nmap <SPACE>r <Action>(RenameElement)
 nmap <leader>t <Action>(ActivateTerminalToolWindow)
 nmap <leader>r <Action>(Run)
